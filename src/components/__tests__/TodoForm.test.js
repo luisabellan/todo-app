@@ -16,7 +16,6 @@ it("matches snapshot", () => {
 });
 test("renders TodoForm", () => {
   render(<TodoForm />);
-  // eslint-disable-next-line testing-library/await-async-query
   const todoForm = screen.getByPlaceholderText(/New task/i);
   const addTodoButton = screen.getByText(/add/i);
   const clearListButton = screen.getByText(/clean/i);
@@ -26,11 +25,21 @@ test("renders TodoForm", () => {
   expect(clearListButton).toBeInTheDocument();
 });
 
-it("allows input", () => {
+it("handle changes of input text", () => {
   const { getByTestId } = render(<TodoForm />);
   let item = "buy bread";
   const todoInputElement = getByTestId("todo-input");
   todoInputElement.value = item;
   fireEvent.change(todoInputElement);
   expect(todoInputElement.value).toBe(item);
+});
+
+it("submits input text", () => {
+  const { getByTestId } = render(<TodoForm />);
+  let item = "buy bread";
+  const todoInputElement = getByTestId("todo-input");
+  todoInputElement.value = item;
+  fireEvent.submit(todoInputElement);
+  expect(todoInputElement.value).toBe(item);
+  console.log(todoInputElement.value);
 });
