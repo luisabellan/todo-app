@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todo list test matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="todolist-wrapper"
+  >
+    <ul
+      data-testid="todos-ul"
+    >
+      <div
+        class="item "
+      >
+        <p
+          style="font-family: Indie Flower; font-size: 2rem;"
+        >
+          buy bread
+        </p>
+      </div>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
