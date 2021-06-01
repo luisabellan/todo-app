@@ -8,7 +8,6 @@ TodoList.propTypes = {
 };
 
 function TodoList(props) {
-  console.log(props.todos);
   return (
     <div className="todolist-wrapper">
       <ul data-testid="todos-ul">

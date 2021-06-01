@@ -7,7 +7,7 @@ import TodoList from "../TodoList";
 const todoItems = [
   {
     name: "buy bread",
-    id: "1",
+    id: 1,
     completed: false,
   },
 ];
@@ -16,11 +16,11 @@ afterEach(cleanup);
 
 describe("todo list test", () => {
   it("matches snapshot", () => {
-    const { asFragment } = render(<TodoList todoItems={todoItems} />);
+    const { asFragment } = render(<TodoList todos={todoItems} />);
     expect(asFragment()).toMatchSnapshot();
   });
   it("should show name of todos", () => {
-    render(<TodoList todoItems={todoItems} />);
+    render(<TodoList todos={todoItems} />);
     todoItems.forEach((d) => expect(screen.getByText(d.name)).toBeInTheDocument());
   });
 });
