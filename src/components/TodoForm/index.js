@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 TodoForm.propTypes = {
   addItem: PropTypes.func,
-  clearCompleted: PropTypes.func,
+  clearCompleted: PropTypes.func
 };
 
 export default function TodoForm(props) {
   const initialState = {
-    todoItem1: "",
+    todoItem1: ''
   };
   const [state, setState] = useState(initialState);
 
@@ -24,7 +24,7 @@ export default function TodoForm(props) {
     e.preventDefault();
     //console.log(props);
     props.addItem(e, state.todoItem1);
-    setState({ todoItem1: "" });
+    setState({ todoItem1: '' });
   };
 
   // console.log('rendering form', state.todoItem);
@@ -39,28 +39,12 @@ export default function TodoForm(props) {
           placeholder="New Task"
           name="todoItem1"
           onChange={handleChanges}
-          style={{ fontFamily: "Ubuntu, sans-serif", outline: "none" }}
         ></input>
 
-        <button
-          className="add-to-do-btn"
-          style={{
-            fontFamily: "Jomhuria,sans-serif",
-            outline: "none",
-            fontSize: "3.2rem",
-          }}
-        >
+        <button className="add-to-do-btn">
           <span>Add</span>
         </button>
-        <button
-          className="clear-btn"
-          onClick={props.clearCompleted}
-          style={{
-            fontFamily: "Jomhuria,sans-serif",
-            outline: "none",
-            fontSize: "3.2rem",
-          }}
-        >
+        <button className="clear-btn" onClick={props.clearCompleted}>
           <span>Clean</span>
         </button>
       </form>

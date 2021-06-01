@@ -1,10 +1,10 @@
-import React from "react";
-import Todo from "../Todo";
-import PropTypes from "prop-types";
+import React from 'react';
+import Todo from '../Todo';
+import PropTypes from 'prop-types';
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object),
-  toggleItem: PropTypes.func,
+  toggleItem: PropTypes.func
 };
 
 function TodoList(props) {

@@ -1,8 +1,8 @@
 /* eslint-disable no-labels */
 /* eslint-disable no-unused-expressions */
-import React from "react";
-import PropTypes from "prop-types";
-import "./Todo.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Todo.scss';
 
 /* item: PropTypes.exact({
   id: PropTypes.number.isRequired,
@@ -13,7 +13,7 @@ import "./Todo.scss";
 Todo.propTypes = {
   todo: PropTypes.object,
   toggleItem: PropTypes.func,
-  handleChanges: PropTypes.func,
+  handleChanges: PropTypes.func
 };
 
 export default function Todo(props) {

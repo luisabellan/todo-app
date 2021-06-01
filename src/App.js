@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
-import Header from "./components/Header";
+import React, { useState, useEffect } from 'react';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-import "./App.scss";
+import './App.scss';
 
 function App() {
   let todoItems = [];
@@ -11,12 +12,12 @@ function App() {
   const [todos, setTodos] = useState(todoItems);
 
   const saveData = (newTodos) => {
-    localStorage.setItem("todos", JSON.stringify(newTodos));
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   };
 
   useEffect(() => {
-    if (localStorage.getItem("todos")) {
-      setTodos(JSON.parse(localStorage.getItem("todos")));
+    if (localStorage.getItem('todos')) {
+      setTodos(JSON.parse(localStorage.getItem('todos')));
     }
   }, []);
 
@@ -27,7 +28,7 @@ function App() {
     const newItem = {
       name: item,
       id: Date.now(),
-      completed: false,
+      completed: false
     };
     let todoItems = [...todos, newItem];
     setTodos(todoItems);
@@ -43,12 +44,12 @@ function App() {
         if (itemId === item.id) {
           return {
             ...item,
-            completed: !item.completed,
+            completed: !item.completed
           };
         }
 
         return item;
-      }),
+      })
     );
   };
   const clearCompleted = (e) => {
@@ -70,12 +71,7 @@ function App() {
         {/* {console.log(todos)} */}
         <TodoList className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
-
-      <footer className="footer">
-        <span className="copyright">
-          Made with 💓 and ☕ by <a href="https://luisabellan.com">Luis Abellan</a>
-        </span>
-      </footer>
+      <Footer />
     </div>
   );
 }

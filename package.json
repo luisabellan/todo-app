@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@typescript-eslint/parser": "^4.26.0",
+    "eslint-config-standard": "^16.0.3",
     "node-sass": "^4.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -51,13 +52,6 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0"
-  },
-  "prettier": {
-    "printWidth": 85,
-    "arrowParens": "always",
-    "semi": true,
-    "tabWidth": 2,
-    "trailingComma": "all"
   },
   "husky": {
     "hooks": {
