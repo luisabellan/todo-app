@@ -7,7 +7,7 @@ function App() {
   let todoItems = [
     {
       name: `buy bread`,
-      id: "1",
+      id: Date.now(),
       completed: false,
     },
   ];

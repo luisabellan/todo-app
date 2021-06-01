@@ -1,7 +1,13 @@
 import React from "react";
 import Todo from "./Todo";
+import PropTypes from "prop-types";
 
-const TodoList = (props) => {
+TodoList.propTypes = {
+  todoItems: PropTypes.arrayOf(PropTypes.object),
+  item: PropTypes.object,
+};
+
+function TodoList(props) {
   return (
     <div className="todolist-wrapper">
       <ul data-testid="todos-ul">
@@ -11,6 +17,6 @@ const TodoList = (props) => {
       </ul>
     </div>
   );
-};
+}
 
 export default TodoList;

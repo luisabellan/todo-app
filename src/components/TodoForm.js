@@ -1,5 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
+TodoForm.propTypes = {
+  addItem: PropTypes.func,
+  clearCompleted: PropTypes.func,
+};
 export default function TodoForm(props) {
   const initialState = {
     todoItem1: "",
