@@ -34,11 +34,15 @@ it('handle changes of input text', () => {
   expect(todoInputElement.value).toBe(item);
 });
 
-it('submits input text', () => {
+it('submits input text', (item) => {
   const { getByTestId } = render(<TodoForm />);
-  let item = 'buy bread';
+  //let item = 'buy bread';
+  let newItem = {
+    todoItem1: item,
+  }
   const todoInputElement = getByTestId('todo-input');
   todoInputElement.value = item;
   fireEvent.submit(todoInputElement);
   expect(todoInputElement.value).toBe(item);
+  console.log(newItem)
 });
