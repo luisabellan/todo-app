@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todo test matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="task"
+  >
+    <input
+      name="item buy bread"
+      type="checkbox"
+      value="buy bread"
+    />
+    <span>
+      buy bread
+    </span>
+  </div>
+</DocumentFragment>
+`;

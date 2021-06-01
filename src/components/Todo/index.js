@@ -11,7 +11,7 @@ import "./Todo.scss";
 }); */
 
 Todo.propTypes = {
-  item: PropTypes.object,
+  todo: PropTypes.object,
   toggleItem: PropTypes.func,
   handleChanges: PropTypes.func,
 };
@@ -25,13 +25,13 @@ export default function Todo(props) {
     >
       <input
         type="checkbox"
-        name={`item ${props.item.name}`}
-        value={props.item.name}
-        onClick={() => props.toggleItem(props.item.id)}
+        name={`item ${props.todo.name}`}
+        value={props.todo.name}
+        onClick={() => props.toggleItem(props.todo.id)}
         onChange={props.handleChanges}
-        defaultChecked={props.item.completed}
+        defaultChecked={props.todo.completed}
       ></input>
-      <span>{props.item.name}</span>
+      <span>{props.todo.name}</span>
     </div>
   );
 }

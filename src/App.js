@@ -5,19 +5,8 @@ import Header from "./components/Header";
 import "./App.scss";
 
 function App() {
-  let todoItems = [
-    /* {
-      name: `buy bread`,
-      id: Date.now(),
-      completed: false,
-    }, */
-  ];
+  let todoItems = [];
 
-  let todoItem = "";
-
-  const initialState = {
-    todoItems,
-  };
   const [todos, setTodos] = useState(todoItems);
 
   const saveData = (newTodos) => {
