@@ -6,26 +6,20 @@ import "./App.scss";
 
 function App() {
   let todoItems = [
-    {
+    /* {
       name: `buy bread`,
       id: Date.now(),
       completed: false,
-    },
+    }, */
   ];
 
   let todoItem = "";
-
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 
   const initialState = {
     todoItems,
     todoItem,
   };
   const [state, setState] = useState(initialState);
-
-  // logic here
 
   // Class methods to update state
   const addItem = (e, item) => {

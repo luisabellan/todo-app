@@ -44,20 +44,7 @@ exports[`matches snapshot 1`] = `
       >
         <ul
           data-testid="todos-ul"
-        >
-          <div
-            class="task"
-          >
-            <input
-              name="item buy bread"
-              type="checkbox"
-              value="buy bread"
-            />
-            <span>
-              buy bread
-            </span>
-          </div>
-        </ul>
+        />
       </div>
     </div>
     <footer

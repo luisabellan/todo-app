@@ -21,13 +21,13 @@ export default function Todo(props) {
     <div
       /* className={`item ${props.item.completed ? " completed" : ""}`}  */
       className="task"
-      onClick={() => props.toggleItem(props.item.id)}
+      /*onClick={() => props.toggleItem(props.item.id)}*/
     >
       <input
         type="checkbox"
         name={`item ${props.item.name}`}
         value={props.item.name}
-        checked={props.item.completed}
+        onClick={() => props.toggleItem(props.item.id)}
         onChange={props.handleChanges}
         defaultChecked={props.item.completed}
       ></input>
