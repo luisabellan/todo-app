@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import Header from "./components/Header";
@@ -17,9 +17,18 @@ function App() {
 
   const initialState = {
     todoItems,
-    todoItem,
   };
-  const [state, setState] = useState(initialState);
+  const [todos, setTodos] = useState(todoItems);
+
+  const saveData = (newTodos) => {
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("todos")) {
+      setTodos(JSON.parse(localStorage.getItem("todos")));
+    }
+  }, []);
 
   // Class methods to update state
   const addItem = (e, item) => {
@@ -30,17 +39,16 @@ function App() {
       id: Date.now(),
       completed: false,
     };
-
-    setState({
-      todoItems: [...state.todoItems, newItem],
-    });
+    let todoItems = [...todos, newItem];
+    setTodos(todoItems);
+    saveData(todoItems);
   };
 
   const toggleItem = (itemId) => {
     // console.log(itemId);
 
-    setState({
-      todoItems: state.todoItems.map((item) => {
+    setTodos(
+      todos.map((item) => {
         // console.log(item);
         if (itemId === item.id) {
           return {
@@ -51,16 +59,13 @@ function App() {
 
         return item;
       }),
-    });
+    );
   };
-
   const clearCompleted = (e) => {
     e.preventDefault();
-    setState({
-      // returns the items that haven't been completed and purges
-      // the ones that have been completed
-      todoItems: state.todoItems.filter((item) => item.completed === false),
-    });
+    let todoItems = todos.filter((item) => item.completed === false);
+    setTodos(todoItems);
+    saveData(todoItems);
   };
 
   return (
@@ -72,11 +77,8 @@ function App() {
           addItem={addItem}
           clearCompleted={clearCompleted}
         />
-        <TodoList
-          className="todolist"
-          todoItems={state.todoItems}
-          toggleItem={toggleItem}
-        />
+        {/* {console.log(todos)} */}
+        <TodoList className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
 
       <footer className="footer">
