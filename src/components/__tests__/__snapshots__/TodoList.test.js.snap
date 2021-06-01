@@ -9,13 +9,16 @@ exports[`todo list test matches snapshot 1`] = `
       data-testid="todos-ul"
     >
       <div
-        class="item "
+        class="task"
       >
-        <p
-          style="font-family: Indie Flower; font-size: 2rem;"
-        >
+        <input
+          name="item buy bread"
+          type="checkbox"
+          value="buy bread"
+        />
+        <span>
           buy bread
-        </p>
+        </span>
       </div>
     </ul>
   </div>

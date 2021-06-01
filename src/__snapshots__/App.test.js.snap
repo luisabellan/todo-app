@@ -8,58 +8,71 @@ exports[`matches snapshot 1`] = `
     <h2>
       Todo App
     </h2>
-    <form>
-      <h2>
-        New Task
-      </h2>
-      <input
-        data-testid="todo-input"
-        name="todoItem1"
-        placeholder="New task"
-        type="text"
-        value=""
-      />
-      /
-      <button
-        class="add-to-do-btn"
-        style="font-family: Jomhuria,sans-serif; outline: none; font-size: 3.2rem;"
-      >
-        <span>
-          Add
-        </span>
-      </button>
-      <button
-        class="clear-btn"
-        style="font-family: Jomhuria,sans-serif; outline: none; font-size: 3.2rem;"
-      >
-        <span>
-          Clean
-        </span>
-      </button>
-    </form>
     <div
-      class="todolist-wrapper"
+      class="main"
     >
-      <ul
-        data-testid="todos-ul"
-      >
-        <div
-          class="item "
+      <form>
+        <h2>
+          New Task
+        </h2>
+        <input
+          data-testid="todo-input"
+          name="todoItem1"
+          placeholder="New task"
+          type="text"
+          value=""
+        />
+        <button
+          class="add-to-do-btn"
+          style="font-family: Jomhuria,sans-serif; outline: none; font-size: 1.2rem;"
         >
-          <p
-            style="font-family: Indie Flower; font-size: 2rem;"
+          <span>
+            Add
+          </span>
+        </button>
+        <button
+          class="clear-btn"
+          style="font-family: Jomhuria,sans-serif; outline: none; font-size: 1.2rem;"
+        >
+          <span>
+            Clean
+          </span>
+        </button>
+      </form>
+      <div
+        class="todolist-wrapper"
+      >
+        <ul
+          data-testid="todos-ul"
+        >
+          <div
+            class="task"
           >
-            buy bread
-          </p>
-        </div>
-      </ul>
+            <input
+              name="item buy bread"
+              type="checkbox"
+              value="buy bread"
+            />
+            <span>
+              buy bread
+            </span>
+          </div>
+        </ul>
+      </div>
     </div>
-    <footer>
-      <p
+    <footer
+      class="footer"
+    >
+      <span
         class="copyright"
       >
-        Copyright 2021 - Luis Abellan
-      </p>
+        Made with 💓 and ☕ by 
+        <a
+          href="https://luisabellan.com"
+        >
+          Luis Abellan
+        </a>
+      </span>
     </footer>
   </div>
 </DocumentFragment>

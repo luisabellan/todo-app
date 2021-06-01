@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import Header from "./components/Header";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   let todoItems = [
@@ -71,13 +71,24 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <Header />
-      <TodoForm addItem={addItem} clearCompleted={clearCompleted} />
-      <TodoList todoItems={state.todoItems} toggleItem={toggleItem} />
-      <footer>
-        <p className="copyright">
-          Copyright {new Date().getFullYear()} - Luis Abellan
-        </p>
+      <Header className="header" />
+      <div className="main">
+        <TodoForm
+          className="todoform"
+          addItem={addItem}
+          clearCompleted={clearCompleted}
+        />
+        <TodoList
+          className="todolist"
+          todoItems={state.todoItems}
+          toggleItem={toggleItem}
+        />
+      </div>
+
+      <footer className="footer">
+        <span className="copyright">
+          Made with 💓 and ☕ by <a href="https://luisabellan.com">Luis Abellan</a>
+        </span>
       </footer>
     </div>
   );

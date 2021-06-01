@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  height: 100vh;
+  overflow: hidden;
+
+  .header {
+    height: 15vh;
+  }
+
+  .main {
+    height: 80vh;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: auto;
+    .copyright {
+      display: flex;
+      justify-content: center;
+      a {
+        margin-left: 0.3rem;
+        text-decoration: none;
+        color: rgb(250, 74, 4);
+      }
+    }
+  }
+}
