@@ -40,13 +40,13 @@ export default function TodoForm(props) {
           onChange={handleChanges}
           placeholder="New task"
         />
-        /
+
         <button
           className="add-to-do-btn"
           style={{
             fontFamily: "Jomhuria,sans-serif",
             outline: "none",
-            fontSize: "3.2rem",
+            fontSize: "1.2rem",
           }}
         >
           <span>Add</span>
@@ -57,7 +57,7 @@ export default function TodoForm(props) {
           style={{
             fontFamily: "Jomhuria,sans-serif",
             outline: "none",
-            fontSize: "3.2rem",
+            fontSize: "1.2rem",
           }}
         >
           <span>Clean</span>

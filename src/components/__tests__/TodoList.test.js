@@ -21,8 +21,6 @@ describe("todo list test", () => {
   });
   it("should show name of todos", () => {
     render(<TodoList todoItems={todoItems} />);
-    todoItems.forEach((d) =>
-      expect(screen.getByText(d.name)).toBeInTheDocument()
-    );
+    todoItems.forEach((d) => expect(screen.getByText(d.name)).toBeInTheDocument());
   });
 });

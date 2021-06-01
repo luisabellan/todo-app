@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
@@ -61,7 +62,6 @@ function App() {
 
   const clearCompleted = (e) => {
     e.preventDefault();
-    console.log(state.todoItems);
     setState({
       // returns the items that haven't been completed and purges
       // the ones that have been completed
@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <h2>Todo App</h2>
+      <Header />
       <TodoForm addItem={addItem} clearCompleted={clearCompleted} />
       <TodoList todoItems={state.todoItems} toggleItem={toggleItem} />
       <footer>
