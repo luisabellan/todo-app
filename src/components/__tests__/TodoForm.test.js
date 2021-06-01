@@ -1,5 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  cleanup,
+  getRoles,
+} from "@testing-library/react";
 import TodoForm from "../TodoForm";
 
 afterEach(cleanup);
@@ -10,7 +16,8 @@ it("matches snapshot", () => {
 });
 test("renders TodoForm", () => {
   render(<TodoForm />);
-  const todoForm = screen.getByText(/New task/i);
+  // eslint-disable-next-line testing-library/await-async-query
+  const todoForm = screen.getByPlaceholderText(/New task/i);
   const addTodoButton = screen.getByText(/add/i);
   const clearListButton = screen.getByText(/clean/i);
 

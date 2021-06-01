@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object),
-  todo: PropTypes.object,
+  toggleItem: PropTypes.func,
 };
 
 function TodoList(props) {

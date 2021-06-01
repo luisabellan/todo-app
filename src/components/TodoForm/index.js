@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./TodoForm.scss";
 
 TodoForm.propTypes = {
   addItem: PropTypes.func,
   clearCompleted: PropTypes.func,
 };
+
 export default function TodoForm(props) {
   const initialState = {
     todoItem1: "",
@@ -32,22 +32,22 @@ export default function TodoForm(props) {
   return (
     <>
       <form onSubmit={submitItem}>
-        <h2>New Task</h2>
         <input
           type="text"
           data-testid="todo-input"
           value={state.todoItem1}
+          placeholder="New Task"
           name="todoItem1"
           onChange={handleChanges}
-          placeholder="New task"
-        />
+          style={{ fontFamily: "Ubuntu, sans-serif", outline: "none" }}
+        ></input>
 
         <button
           className="add-to-do-btn"
           style={{
             fontFamily: "Jomhuria,sans-serif",
             outline: "none",
-            fontSize: "1.2rem",
+            fontSize: "3.2rem",
           }}
         >
           <span>Add</span>
@@ -58,7 +58,7 @@ export default function TodoForm(props) {
           style={{
             fontFamily: "Jomhuria,sans-serif",
             outline: "none",
-            fontSize: "1.2rem",
+            fontSize: "3.2rem",
           }}
         >
           <span>Clean</span>
