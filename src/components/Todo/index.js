@@ -13,21 +13,20 @@ import './Todo.scss';
 
 
 Todo.propTypes = {
-  /*  todoItem: PropTypes.shape({
-     id: PropTypes.number.isRequired,
-     name: PropTypes.string,
-     completed: PropTypes.bool,
-     toggleItem: PropTypes.func,
-     handleChanges: PropTypes.func
-   }), */
-  todo: PropTypes.object,
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string,
+    completed: PropTypes.bool,
+    toggleItem: PropTypes.func,
+    handleChanges: PropTypes.func
+  }),
+
   toggleItem: PropTypes.func,
-  handleChanges: PropTypes.func
+  handleChanges: PropTypes.func,
 }
 
 export default function Todo(props) {
 
-  console.log(props.todo.name)
   return (
     <div
       className="task"
