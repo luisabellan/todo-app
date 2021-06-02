@@ -12,6 +12,7 @@ exports[`matches snapshot 1`] = `
     />
     <button
       class="add-to-do-btn"
+      data-testid="add-todo-button"
     >
       <span>
         Add

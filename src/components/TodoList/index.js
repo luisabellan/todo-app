@@ -12,7 +12,7 @@ function TodoList(props) {
     <div className="todolist-wrapper">
       <ul data-testid="todos-ul">
         {props.todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} toggleItem={props.toggleItem} />
+          <Todo data-testid="todo-output" key={todo.id} todo={todo} toggleItem={props.toggleItem} />
         ))}
       </ul>
     </div>

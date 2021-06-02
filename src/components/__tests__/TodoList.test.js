@@ -9,12 +9,22 @@ const todos = [
     name: 'buy bread',
     id: 1,
     completed: false
+  },
+  {
+    name: 'buy milk',
+    id: 2,
+    completed: false
+  },
+  {
+    name: 'write blog',
+    id: 3,
+    completed: false
   }
 ];
 
-afterEach(cleanup);
 
 describe('todo list test', () => {
+  afterEach(cleanup);
   it('matches snapshot', () => {
     const { asFragment } = render(<TodoList todos={todos} />);
     expect(asFragment()).toMatchSnapshot();

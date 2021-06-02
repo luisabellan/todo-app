@@ -20,6 +20,30 @@ exports[`todo list test matches snapshot 1`] = `
           buy bread
         </span>
       </div>
+      <div
+        class="task"
+      >
+        <input
+          name="item buy milk"
+          type="checkbox"
+          value="buy milk"
+        />
+        <span>
+          buy milk
+        </span>
+      </div>
+      <div
+        class="task"
+      >
+        <input
+          name="item write blog"
+          type="checkbox"
+          value="write blog"
+        />
+        <span>
+          write blog
+        </span>
+      </div>
     </ul>
   </div>
 </DocumentFragment>

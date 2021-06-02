@@ -20,7 +20,7 @@ export default function TodoForm(props) {
   };
 
   // class property to submit form
-  const submitItem = (e) => {
+  const addTodo = (e) => {
     e.preventDefault();
     //console.log(props);
     props.addItem(e, state.todoItem1);
@@ -31,7 +31,7 @@ export default function TodoForm(props) {
 
   return (
     <>
-      <form onSubmit={submitItem}>
+      <form onSubmit={addTodo}>
         <input
           type="text"
           data-testid="todo-input"
@@ -41,7 +41,7 @@ export default function TodoForm(props) {
           onChange={handleChanges}
         ></input>
 
-        <button className="add-to-do-btn">
+        <button className="add-to-do-btn" data-testid="add-todo-button">
           <span>Add</span>
         </button>
         <button className="clear-btn" onClick={props.clearCompleted}>
