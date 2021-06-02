@@ -10,18 +10,27 @@ import './Todo.scss';
   completed: PropTypes.bool,
 }); */
 
+
+
 Todo.propTypes = {
+  /*  todoItem: PropTypes.shape({
+     id: PropTypes.number.isRequired,
+     name: PropTypes.string,
+     completed: PropTypes.bool,
+     toggleItem: PropTypes.func,
+     handleChanges: PropTypes.func
+   }), */
   todo: PropTypes.object,
   toggleItem: PropTypes.func,
   handleChanges: PropTypes.func
-};
+}
 
 export default function Todo(props) {
+
+  console.log(props.todo.name)
   return (
     <div
-      /* className={`item ${props.item.completed ? " completed" : ""}`}  */
       className="task"
-      /*onClick={() => props.toggleItem(props.item.id)}*/
     >
       <input
         type="checkbox"
@@ -31,7 +40,7 @@ export default function Todo(props) {
         onChange={props.handleChanges}
         defaultChecked={props.todo.completed}
       ></input>
-      <span>{props.todo.name}</span>
+      <span data-testid="todo-output" >{props.todo.name}</span>
     </div>
   );
 }

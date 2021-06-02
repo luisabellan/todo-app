@@ -10,7 +10,9 @@ exports[`todo test matches snapshot 1`] = `
       type="checkbox"
       value="buy bread"
     />
-    <span>
+    <span
+      data-testid="todo-output"
+    >
       buy bread
     </span>
   </div>

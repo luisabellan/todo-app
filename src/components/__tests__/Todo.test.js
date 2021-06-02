@@ -20,8 +20,6 @@ describe('todo test', () => {
   it('should show name of todos', () => {
     render(<Todo todo={todo} />);
 
-    /* expect(screen.getByText(todo.id)).toBeInTheDocument(); */
     expect(screen.getByText(todo.name)).toBeInTheDocument();
-    /* expect(screen.getByText(todo.completed)).toBeInTheDocument(); */
   });
 });

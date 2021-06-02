@@ -16,7 +16,9 @@ exports[`todo list test matches snapshot 1`] = `
           type="checkbox"
           value="buy bread"
         />
-        <span>
+        <span
+          data-testid="todo-output"
+        >
           buy bread
         </span>
       </div>
@@ -28,7 +30,9 @@ exports[`todo list test matches snapshot 1`] = `
           type="checkbox"
           value="buy milk"
         />
-        <span>
+        <span
+          data-testid="todo-output"
+        >
           buy milk
         </span>
       </div>
@@ -40,7 +44,9 @@ exports[`todo list test matches snapshot 1`] = `
           type="checkbox"
           value="write blog"
         />
-        <span>
+        <span
+          data-testid="todo-output"
+        >
           write blog
         </span>
       </div>

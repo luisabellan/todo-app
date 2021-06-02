@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`App matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="app-wrapper"
@@ -21,6 +21,7 @@ exports[`matches snapshot 1`] = `
         />
         <button
           class="add-to-do-btn"
+          data-testid="add-todo-button"
         >
           <span>
             Add
