@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-
+import userEvent from '@testing-library/user-event'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import Todo from '../Todo';
 
@@ -22,6 +22,17 @@ describe('todo test', () => {
     render(<Todo todo={todo} />);
 
     expect(screen.getByText(todo.name)).toBeInTheDocument();
+  });
+  test('click on checkbox', () => {
+    render(
+      <div>
+        <label htmlFor="checkbox">Check</label>
+        <input id="checkbox" type="checkbox" />
+      </div>,
+    )
+
+    userEvent.click(screen.getByText('Check'))
+    expect(screen.getByLabelText('Check')).toBeChecked()
   });
 
 

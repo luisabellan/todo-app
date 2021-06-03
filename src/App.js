@@ -69,7 +69,7 @@ function App() {
           clearCompleted={clearCompleted}
         />
         {/* {console.log(todos)} */}
-        <TodoList data-test-id="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
+        <TodoList data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
       <Footer />
     </div>
