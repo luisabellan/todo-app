@@ -21,6 +21,11 @@ Todo.propTypes = {
 
 export default function Todo(props) {
 
+  const handleClick = () => {
+    return (
+      props.toggleItem(props.todo.id)
+    )
+  }
   return (
     <div
       className="task"
@@ -30,7 +35,7 @@ export default function Todo(props) {
         data-testid="checkbox"
         name={`item ${props.todo.name}`}
         value={props.todo.name}
-        onClick={() => props.toggleItem(props.todo.id)}
+        onClick={() => handleClick()}
         onChange={props.handleChanges}
         defaultChecked={props.todo.completed}
       ></input>
