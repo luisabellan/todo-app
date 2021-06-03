@@ -3,16 +3,13 @@ import {
   render,
   screen,
   fireEvent,
-  cleanup,
+  cleanup
   /* getRoles*/
 } from '@testing-library/react';
 
 import TodoForm from '../TodoForm';
 import Todo from '../Todo';
 import App from '../../App';
-
-
-
 
 cleanup();
 it('matches snapshot', () => {
@@ -39,7 +36,3 @@ it('handle changes of input text', (item = 'buy bread') => {
   fireEvent.change(todoInputElement);
   expect(todoInputElement.value).toBe(item);
 });
-
-
-
-

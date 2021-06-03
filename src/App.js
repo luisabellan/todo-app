@@ -3,17 +3,14 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import saveData from './utils';
 
 import './App.scss';
 
-function App() {
+function App(props) {
   let todoItems = [];
 
   const [todos, setTodos] = useState(todoItems);
-
-  const saveData = (newTodos) => {
-    localStorage.setItem('todos', JSON.stringify(newTodos));
-  };
 
   useEffect(() => {
     if (localStorage.getItem('todos')) {
@@ -69,7 +66,12 @@ function App() {
           clearCompleted={clearCompleted}
         />
         {/* {console.log(todos)} */}
-        <TodoList data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
+        <TodoList
+          data-testid="todolist"
+          className="todolist"
+          todos={todos}
+          toggleItem={toggleItem}
+        />
       </div>
       <Footer />
     </div>
