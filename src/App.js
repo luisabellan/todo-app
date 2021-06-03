@@ -1,31 +1,25 @@
-import React, { useState } from "react";
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
-import Header from "./components/Header";
-import "./App.scss";
+import React, { useState, useEffect } from 'react';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import './App.scss';
 
 function App() {
-  let todoItems = [
-    {
-      name: `buy bread`,
-      id: Date.now(),
-      completed: false,
-    },
-  ];
+  let todoItems = [];
 
-  let todoItem = "";
+  const [todos, setTodos] = useState(todoItems);
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
-  const initialState = {
-    todoItems,
-    todoItem,
+  const saveData = (newTodos) => {
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   };
-  const [state, setState] = useState(initialState);
 
-  // logic here
+  useEffect(() => {
+    if (localStorage.getItem('todos')) {
+      setTodos(JSON.parse(localStorage.getItem('todos')));
+    }
+  }, []);
 
   // Class methods to update state
   const addItem = (e, item) => {
@@ -34,39 +28,35 @@ function App() {
     const newItem = {
       name: item,
       id: Date.now(),
-      completed: false,
+      completed: false
     };
-
-    setState({
-      todoItems: [...state.todoItems, newItem],
-    });
+    let todoItems = [...todos, newItem];
+    setTodos(todoItems);
+    saveData(todoItems);
   };
 
   const toggleItem = (itemId) => {
     // console.log(itemId);
 
-    setState({
-      todoItems: state.todoItems.map((item) => {
+    setTodos(
+      todos.map((item) => {
         // console.log(item);
         if (itemId === item.id) {
           return {
             ...item,
-            completed: !item.completed,
+            completed: !item.completed
           };
         }
 
         return item;
-      }),
-    });
+      })
+    );
   };
-
   const clearCompleted = (e) => {
     e.preventDefault();
-    setState({
-      // returns the items that haven't been completed and purges
-      // the ones that have been completed
-      todoItems: state.todoItems.filter((item) => item.completed === false),
-    });
+    let todoItems = todos.filter((item) => item.completed === false);
+    setTodos(todoItems);
+    saveData(todoItems);
   };
 
   return (
@@ -78,18 +68,10 @@ function App() {
           addItem={addItem}
           clearCompleted={clearCompleted}
         />
-        <TodoList
-          className="todolist"
-          todoItems={state.todoItems}
-          toggleItem={toggleItem}
-        />
+        {/* {console.log(todos)} */}
+        <TodoList data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
-
-      <footer className="footer">
-        <span className="copyright">
-          Made with 💓 and ☕ by <a href="https://luisabellan.com">Luis Abellan</a>
-        </span>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,16 +1,28 @@
-import React from "react";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
-import TodoForm from "../TodoForm";
+import React from 'react';
+import {
+  render,
+  screen,
+  fireEvent,
+  cleanup,
+  /* getRoles*/
+} from '@testing-library/react';
 
-afterEach(cleanup);
+import TodoForm from '../TodoForm';
+import Todo from '../Todo';
+import App from '../../App';
 
-it("matches snapshot", () => {
+
+
+
+cleanup();
+it('matches snapshot', () => {
   const { asFragment } = render(<TodoForm />);
   expect(asFragment()).toMatchSnapshot();
 });
-test("renders TodoForm", () => {
+
+it('renders TodoForm', async () => {
   render(<TodoForm />);
-  const todoForm = screen.getByText(/New task/i);
+  const todoForm = await screen.findByPlaceholderText(/New task/i);
   const addTodoButton = screen.getByText(/add/i);
   const clearListButton = screen.getByText(/clean/i);
 
@@ -18,12 +30,16 @@ test("renders TodoForm", () => {
   expect(addTodoButton).toBeInTheDocument();
   expect(clearListButton).toBeInTheDocument();
 });
+cleanup();
 
-it("allows input", () => {
+it('handle changes of input text', (item = 'buy bread') => {
   const { getByTestId } = render(<TodoForm />);
-  let item = "buy bread";
-  const todoInputElement = getByTestId("todo-input");
+  const todoInputElement = getByTestId('todo-input');
   todoInputElement.value = item;
   fireEvent.change(todoInputElement);
   expect(todoInputElement.value).toBe(item);
 });
+
+
+
+

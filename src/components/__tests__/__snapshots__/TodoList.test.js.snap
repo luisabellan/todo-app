@@ -12,12 +12,45 @@ exports[`todo list test matches snapshot 1`] = `
         class="task"
       >
         <input
+          data-testid="checkbox"
           name="item buy bread"
           type="checkbox"
           value="buy bread"
         />
-        <span>
+        <span
+          data-testid="todo-output"
+        >
           buy bread
+        </span>
+      </div>
+      <div
+        class="task"
+      >
+        <input
+          data-testid="checkbox"
+          name="item buy milk"
+          type="checkbox"
+          value="buy milk"
+        />
+        <span
+          data-testid="todo-output"
+        >
+          buy milk
+        </span>
+      </div>
+      <div
+        class="task"
+      >
+        <input
+          data-testid="checkbox"
+          name="item write blog"
+          type="checkbox"
+          value="write blog"
+        />
+        <span
+          data-testid="todo-output"
+        >
+          write blog
         </span>
       </div>
     </ul>

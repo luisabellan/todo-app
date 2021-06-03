@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./TodoForm.scss";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 TodoForm.propTypes = {
   addItem: PropTypes.func,
-  clearCompleted: PropTypes.func,
+  clearCompleted: PropTypes.func
 };
+
 export default function TodoForm(props) {
   const initialState = {
-    todoItem1: "",
+    todoItem1: ''
   };
   const [state, setState] = useState(initialState);
 
@@ -20,47 +20,31 @@ export default function TodoForm(props) {
   };
 
   // class property to submit form
-  const submitItem = (e) => {
+  const addTodo = (e) => {
     e.preventDefault();
     //console.log(props);
     props.addItem(e, state.todoItem1);
-    setState({ todoItem1: "" });
+    setState({ todoItem1: '' });
   };
 
   // console.log('rendering form', state.todoItem);
 
   return (
     <>
-      <form onSubmit={submitItem}>
-        <h2>New Task</h2>
+      <form onSubmit={addTodo}>
         <input
           type="text"
           data-testid="todo-input"
           value={state.todoItem1}
+          placeholder="New Task"
           name="todoItem1"
           onChange={handleChanges}
-          placeholder="New task"
-        />
+        ></input>
 
-        <button
-          className="add-to-do-btn"
-          style={{
-            fontFamily: "Jomhuria,sans-serif",
-            outline: "none",
-            fontSize: "1.2rem",
-          }}
-        >
+        <button className="add-to-do-btn" data-testid="add-todo-button">
           <span>Add</span>
         </button>
-        <button
-          className="clear-btn"
-          onClick={props.clearCompleted}
-          style={{
-            fontFamily: "Jomhuria,sans-serif",
-            outline: "none",
-            fontSize: "1.2rem",
-          }}
-        >
+        <button className="clear-btn" onClick={props.clearCompleted}>
           <span>Clean</span>
         </button>
       </form>
