@@ -6,6 +6,7 @@ exports[`todo test matches snapshot 1`] = `
     class="task"
   >
     <input
+      data-testid="checkbox"
       name="item buy bread"
       type="checkbox"
       value="buy bread"

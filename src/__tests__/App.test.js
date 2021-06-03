@@ -1,16 +1,9 @@
 import React from "react";
 import {
-  render, screen, cleanup,
+  render, screen, cleanup, fireEvent
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import App from "../App";
-
-
-import Adapter from "enzyme-adapter-react-16";
-import { shallow, mount, configure } from "enzyme";
-
-
-configure({ adapter: new Adapter() });
-
 
 describe("App", () => {
   it('matches snapshot', () => {
@@ -38,6 +31,19 @@ describe("App", () => {
 
 
   });
+
+  test('click on checkbox', () => {
+    render(
+      <div>
+        <label htmlFor="checkbox">Check</label>
+        <input id="checkbox" type="checkbox" />
+      </div>,
+    )
+
+    userEvent.click(screen.getByText('Check'))
+    expect(screen.getByLabelText('Check')).toBeChecked()
+  });
+
 
 
 });

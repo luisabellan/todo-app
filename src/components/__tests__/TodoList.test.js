@@ -1,8 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import TodoList from '../TodoList';
+import App from '../../App';
 
 const todos = [
   {
@@ -33,4 +34,5 @@ describe('todo list test', () => {
     render(<TodoList todos={todos} />);
     todos.forEach((d) => expect(screen.getByText(d.name)).toBeInTheDocument());
   });
+
 });
