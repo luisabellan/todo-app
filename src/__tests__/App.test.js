@@ -90,6 +90,10 @@ describe('App', () => {
   });
 
 
+  const saveData = (newTodos) => {
+
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  }
 
 
 
