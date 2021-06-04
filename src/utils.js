@@ -1,4 +1,4 @@
-const handleClick = (props) => {
+/* const handleClick = (props) => {
   return props.toggleItem(props.todo.id);
 };
 
@@ -8,8 +8,8 @@ const clearCompleted = (e, todos, setTodos, saveData) => {
   setTodos(todoItems);
   saveData(todoItems);
 };
+ */
+export default function saveData(newTodos) {
 
-const saveData = (newTodos) => {
   localStorage.setItem('todos', JSON.stringify(newTodos));
-};
-module.exports = { handleClick, clearCompleted, saveData };
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
@@ -53,16 +53,43 @@ describe('App', () => {
       expect(checkbox).not.toBeChecked()
     })  */
 
-  // Save item
-  test('save item', () => {
-    let newTodos = [{ id: 1, name: 'buy bananas', completed: false }];
-    saveData(newTodos);
-    let currentItems = localStorage.getItem('todos');
-    console.log(currentItems);
-    expect(currentItems.toString()).toBe(JSON.stringify(newTodos));
-  });
+
 
   //setTodos
 
-  test('setTodos', () => {});
+  /*  test('setTodos', () => {
+     let todos = [];
+     let Newtodos = [{ id: 1, name: 'buy bananas', completed: false }];
+     setTodos(JSON.parse(Newtodos));
+     let currentItems = localStorage.getItem('todos');
+ 
+     let todoItems = [];
+     let Newtodos = [{ id: 2, name: "go running", completed: false },]
+ 
+     expect(todos).toBe(JSON.parse(currentItems));
+ 
+   }); */
+
+
+
+  // localStorage.setItem fun
+  test('localStorage.setItem fun', () => {
+    render(<App />)
+    let newItem = { id: 1, name: 'buy bananas', completed: false };
+    localStorage.setItem('todos', []);
+    let currentTodos = localStorage.getItem('todos')
+    console.log(JSON.stringify(currentTodos));
+    console.log('Hello');
+    localStorage.setItem('todos', JSON.stringify([newItem]));
+    console.log(localStorage.getItem('todos'))
+    //expect(localStorage.getItem('todos')).toHaveLength(1);
+    //let currentItems = localStorage.getItem('todos');
+    //console.log(currentItems);
+    currentTodos = localStorage.getItem('todos')
+    let expected = localStorage.getItem('todos');
+    let received = JSON.stringify([newItem]);
+    expect(expected).toBe(received);
+  });
+
+
 });

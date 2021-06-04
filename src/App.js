@@ -3,11 +3,11 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import saveData from './utils';
+import saveData from './utils'
 
 import './App.scss';
 
-function App(props) {
+function App() {
   let todoItems = [];
 
   const [todos, setTodos] = useState(todoItems);
@@ -28,8 +28,11 @@ function App(props) {
       completed: false
     };
     let todoItems = [...todos, newItem];
-    setTodos(todoItems);
-    saveData(todoItems);
+    if (item.length > 0) {
+      setTodos(todoItems);
+      saveData(todoItems);
+
+    }
   };
 
   const toggleItem = (itemId) => {
@@ -66,12 +69,7 @@ function App(props) {
           clearCompleted={clearCompleted}
         />
         {/* {console.log(todos)} */}
-        <TodoList
-          data-testid="todolist"
-          className="todolist"
-          todos={todos}
-          toggleItem={toggleItem}
-        />
+        <TodoList data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
       <Footer />
     </div>
