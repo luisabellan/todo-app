@@ -34,6 +34,7 @@ export default function TodoForm(props) {
       <form onSubmit={addTodo}>
         <input
           type="text"
+          className="input"
           data-testid="todo-input"
           value={state.todoItem1}
           placeholder="New Task"
