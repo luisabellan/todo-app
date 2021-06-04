@@ -33,7 +33,16 @@ function App() {
       completed: false
     };
     let todoItems = [...todos, newItem];
-    if (item.length > 0) {
+
+    /* 
+
+    /\S+/.test(item) 0 or more non-whitespace characters and no other characters
+      item will not be added 
+       
+    */
+
+
+    if (/\S+/.test(item)) {
       setTodos(todoItems);
       saveData(todoItems);
 
@@ -92,9 +101,9 @@ function App() {
         />
         {/* {console.log(todos)} */}
         <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
-      </div>
+      </div >
       <Footer />
-    </div>
+    </div >
   )
 }
 
