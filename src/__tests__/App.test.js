@@ -35,6 +35,60 @@ describe('App', () => {
 
 
 
+  /*   test('click on checkbox', () => {
+      render(
+        <div>
+          <label htmlFor="checkbox">Check</label>
+          <input id="checkbox" type="checkbox" />
+        </div>,
+      )
+  
+      userEvent.click(screen.getByText('Check'))
+      expect(screen.getByLabelText('Check')).toBeChecked()
+    });
+   */
+
+  /*    // Clear item
+    test('clear item', () => {
+      const onChange = jest.fn()
+      render(<input type="checkbox" onChange={onChange} />)
+      const checkbox = screen.getByRole('checkbox')
+      userEvent.dblClick(checkbox)
+      expect(onChange).toHaveBeenCalledTimes(2)
+      expect(checkbox).not.toBeChecked()
+    })  */
+
+
+
+  //setTodos
+
+  /*   test('setTodos', () => {
+      render(<App />)
+      let todos = [];
+      let Newtodos = [{ id: 1, name: 'buy bananas', completed: false }];
+      setTodos(JSON.parse(Newtodos));
+      let currentItems = localStorage.getItem('todos');
+  
+      let todoItems = [];
+  
+      expect(todos).toBe(JSON.parse(currentItems));
+  
+    });
+   */
+
+
+  // localStorage.setItem fun
+  test('localStorage.setItem fun', () => {
+    render(<App />)
+    let newItem = { id: 1, name: 'buy bananas', completed: false };
+    localStorage.setItem('todos', []);
+    let currentTodos = localStorage.getItem('todos')
+    localStorage.setItem('todos', JSON.stringify([newItem]));
+    let expected = localStorage.getItem('todos');
+    let received = JSON.stringify([newItem]);
+    expect(expected).toBe(received);
+  });
+
 
 
 

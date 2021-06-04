@@ -24,8 +24,13 @@ describe('todo test', () => {
 
     expect(screen.getByTestId('checkbox')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
-    expect(screen.getByText(todo.name)).toBeInTheDocument();
   });
 
+  it('click checkbox', () => {
+    render(<Todo todo={todo} />);
+
+    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+  });
 
 });
