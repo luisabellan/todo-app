@@ -28,16 +28,31 @@ it('renders TodoForm', async () => {
   expect(addTodoButton).toBeInTheDocument();
   expect(clearListButton).toBeInTheDocument();
 });
-cleanup();
 
 it('handle changes of input text', () => {
   let item = "";
   const { getByTestId } = render(<TodoForm />);
-  const todoInputElement = getByTestId('todo-input');
-  todoInputElement.value = item;
-  fireEvent.change(todoInputElement);
-  expect(todoInputElement.value).toBe(item);
+  const input = getByTestId('todo-input');
+  input.value = item;
+  fireEvent.change(input);
+  expect(input.value).toBe(item);
 
   userEvent.type(screen.getByTestId('todo-input'), 'read book')
   expect(screen.getByTestId('todo-input')).toHaveValue('read book')
+});
+
+it('add todo', () => {
+  let item = {
+    todoItem1: ""
+  };
+
+  const { getByTestId } = render(<TodoForm />);
+  const input = getByTestId('todo-input');
+  input.value = item.todoItem1;
+  userEvent.type(screen.getByTestId('todo-input'), 'read book')
+  expect(screen.getByTestId('todo-input')).toHaveValue('read book')
+
+  userEvent.click(screen.getByText("Add"));
+  expect(input.value).toBe(item.todoItem1);
+
 });
