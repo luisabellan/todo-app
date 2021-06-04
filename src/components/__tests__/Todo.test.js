@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen, cleanup } from '@testing-library/react';
-import Todo from '../Todo';
+import Todo from '../Todo/Todo';
 import App from '../../App';
 
 const todo = {

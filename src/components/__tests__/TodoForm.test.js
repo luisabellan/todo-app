@@ -8,8 +8,8 @@ import {
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import TodoForm from '../TodoForm';
-import Todo from '../Todo';
+import TodoForm from '../TodoForm/TodoForm';
+import Todo from '../Todo/Todo';
 import App from '../../App';
 
 

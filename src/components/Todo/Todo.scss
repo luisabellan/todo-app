@@ -1,5 +1,6 @@
 .task {
   display: flex;
+  flex-direction: column;
   font-family: 'Indie Flower';
   input {
     margin-right: 1rem;

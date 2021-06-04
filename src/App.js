@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import TodoList from './components/TodoList/TodoList';
+import TodoForm from './components/TodoForm/TodoForm';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import GoogleFontLoader from 'react-google-font-loader';
 
 import './App.scss';
 
@@ -69,6 +70,19 @@ function App() {
 
   return (
     <div className="app-wrapper" data-testid="app">
+      <GoogleFontLoader
+        fonts={[
+          {
+            font: 'Indie Flower',
+            weights: [800, '4000'],
+          },
+          {
+            font: 'Indie Flower',
+            weights: [800, 900],
+          },
+        ]}
+        subsets={['cyrillic-ext', 'greek']}
+      />
       <Header className="header" />
       <div className="main">
         <TodoForm
@@ -77,7 +91,7 @@ function App() {
           clearCompleted={clearCompleted}
         />
         {/* {console.log(todos)} */}
-        <TodoList data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
+        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
       </div>
       <Footer />
     </div>
