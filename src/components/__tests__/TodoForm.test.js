@@ -53,6 +53,7 @@ it('add todo', () => {
   expect(screen.getByTestId('todo-input')).toHaveValue('read book')
 
   userEvent.click(screen.getByText("Add"));
-  expect(input.value).toBe(item.todoItem1);
+  console.log(item.todoItem1)
+  expect(input.value).toBe(item.todoItem1.value);
 
 });

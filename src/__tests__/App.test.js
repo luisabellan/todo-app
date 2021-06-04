@@ -35,28 +35,17 @@ describe('App', () => {
 
 
 
-  /*   test('click on checkbox', () => {
-      render(
-        <div>
-          <label htmlFor="checkbox">Check</label>
-          <input id="checkbox" type="checkbox" />
-        </div>,
-      )
-  
-      userEvent.click(screen.getByText('Check'))
-      expect(screen.getByLabelText('Check')).toBeChecked()
-    });
-   */
 
-  /*    // Clear item
-    test('clear item', () => {
-      const onChange = jest.fn()
-      render(<input type="checkbox" onChange={onChange} />)
-      const checkbox = screen.getByRole('checkbox')
-      userEvent.dblClick(checkbox)
-      expect(onChange).toHaveBeenCalledTimes(2)
-      expect(checkbox).not.toBeChecked()
-    })  */
+
+  // Clear item
+  test('clear item', () => {
+    const onChange = jest.fn()
+    render(<App />)
+    const checkbox = screen.getByText('Clean')
+    userEvent.dblClick(checkbox)
+    expect(onChange).toHaveBeenCalledTimes(2)
+    expect(checkbox).not.toBeChecked()
+  })
 
 
 
