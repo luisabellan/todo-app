@@ -23,10 +23,10 @@ export default function Todo(props) {
     return toggleItem(todo.id);
   };
   return (
-    <div className="task">
+    <div className="checkbox" data-testid="checkbox">
       <input
         type="checkbox"
-        data-testid="checkbox"
+
         name={`item ${props.todo.name}`}
         value={props.todo.name}
         onClick={() => handleClick()}

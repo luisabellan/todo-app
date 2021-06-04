@@ -15,17 +15,15 @@ TodoList.propTypes = {
 
 function TodoList(props) {
   return (
-    <div className="todolist-wrapper">
-      <ul data-testid="todos-ul">
-        {props.todos.map((todo) => (
-          <Todo
-            key={todo.id}
-            handleChanges={props.handleChanges}
-            todo={todo}
-            toggleItem={props.toggleItem}
-          />
-        ))}
-      </ul>
+    <div className="todolist-wrapper" data-testid="checkbox">
+      {props.todos.map((todo) => (
+        <Todo
+          key={todo.id}
+          handleChanges={props.handleChanges}
+          todo={todo}
+          toggleItem={props.toggleItem}
+        />
+      ))}
     </div>
   );
 }

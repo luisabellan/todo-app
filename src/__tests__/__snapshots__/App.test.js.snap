@@ -5,58 +5,67 @@ exports[`App matches snapshot 1`] = `
   <div
     class="app-wrapper"
   >
-    <h2>
-      Todo App
-    </h2>
+    <div
+      data-testid="header"
+    >
+      <h2>
+        Todo App
+      </h2>
+      ;
+    </div>
     <div
       class="main"
     >
-      <form>
-        <input
-          data-testid="todo-input"
-          name="todoItem1"
-          placeholder="New Task"
-          type="text"
-          value=""
-        />
-        <button
-          class="add-to-do-btn"
-          data-testid="add-todo-button"
-        >
-          <span>
-            Add
-          </span>
-        </button>
-        <button
-          class="clear-btn"
-        >
-          <span>
-            Clean
-          </span>
-        </button>
-      </form>
+      <div
+        data-testid="form"
+      >
+        <form>
+          <input
+            data-testid="todo-input"
+            name="todoItem1"
+            placeholder="New Task"
+            type="text"
+            value=""
+          />
+          <button
+            class="add-to-do-btn"
+            data-testid="add-todo-button"
+          >
+            <span>
+              Add
+            </span>
+          </button>
+          <button
+            class="clear-btn"
+          >
+            <span>
+              Clean
+            </span>
+          </button>
+        </form>
+      </div>
       <div
         class="todolist-wrapper"
-      >
-        <ul
-          data-testid="todos-ul"
-        />
-      </div>
+        data-testid="checkbox"
+      />
     </div>
-    <footer
-      class="footer"
-    >
-      <span
-        class="copyright"
+    <div>
+      <footer
+        class="footer"
+        data-testid="footer"
       >
-        Made with 💓 and ☕ by 
-        <a
-          href="https://luisabellan.com"
+        <span
+          class="copyright"
         >
-          Luis Abellan
-        </a>
-      </span>
-    </footer>
+          Made with 💓 and ☕ by 
+          <a
+            href="https://luisabellan.com"
+          >
+            Luis Abellan
+          </a>
+        </span>
+      </footer>
+    </div>
   </div>
 </DocumentFragment>
 `;

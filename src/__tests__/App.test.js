@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import TodoList from '../components/TodoList';
@@ -78,14 +78,7 @@ describe('App', () => {
     let newItem = { id: 1, name: 'buy bananas', completed: false };
     localStorage.setItem('todos', []);
     let currentTodos = localStorage.getItem('todos')
-    console.log(JSON.stringify(currentTodos));
-    console.log('Hello');
     localStorage.setItem('todos', JSON.stringify([newItem]));
-    console.log(localStorage.getItem('todos'))
-    //expect(localStorage.getItem('todos')).toHaveLength(1);
-    //let currentItems = localStorage.getItem('todos');
-    //console.log(currentItems);
-    currentTodos = localStorage.getItem('todos')
     let expected = localStorage.getItem('todos');
     let received = JSON.stringify([newItem]);
     expect(expected).toBe(received);

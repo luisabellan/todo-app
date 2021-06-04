@@ -3,10 +3,10 @@
 exports[`todo test matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="task"
+    class="checkbox"
+    data-testid="checkbox"
   >
     <input
-      data-testid="checkbox"
       name="item buy bread"
       type="checkbox"
       value="buy bread"

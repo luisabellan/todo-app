@@ -29,9 +29,9 @@
     "cy:open": "cypress open",
     "test2:jest": "jest __tests__",
     "test2:cy": "cypress run",
-    "test2": "npm run test:jest && npm run test:cy",
-    "pretest": "rm -rf .nyc_output || true",
-    "posttest": "npm run report:combined",
+    "test2": "npm run test2:jest && npm run test:cy",
+    "pretest2": "rm -rf .nyc_output || true",
+    "posttest2": "npm run report:combined",
     "mkdir:reports": "mkdir reports || true",
     "precopy:reports": "npm run mkdir:reports",
     "copy:reports": "cp cypress-coverage/coverage-final.json reports/from-cypress.json && cp jest-coverage/coverage-final.json reports/from-jest.json",
@@ -62,9 +62,11 @@
     "@cypress/code-coverage": "^3.9.6",
     "@cypress/instrument-cra": "^1.4.0",
     "@testing-library/dom": "^7.31.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
+    "babel-plugin-istanbul": "^6.0.0",
+    "check-code-coverage": "1.10.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -72,9 +74,8 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
-    "start-server-and-test": "^1.12.3",
-    "babel-plugin-istanbul": "^6.0.0",
-    "check-code-coverage": "1.10.0"
+    "react-test-renderer": "^17.0.2",
+    "start-server-and-test": "^1.12.3"
   },
   "husky": {
     "hooks": {
