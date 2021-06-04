@@ -30,7 +30,7 @@ export default function TodoForm(props) {
   // console.log('rendering form', state.todoItem);
 
   return (
-    <>
+    <div data-testid="form">
       <form onSubmit={addTodo}>
         <input
           type="text"
@@ -48,6 +48,6 @@ export default function TodoForm(props) {
           <span>Clean</span>
         </button>
       </form>
-    </>
+    </div>
   );
 }

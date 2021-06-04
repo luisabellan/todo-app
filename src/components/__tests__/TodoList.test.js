@@ -23,7 +23,6 @@ const todos = [
   }
 ];
 
-
 describe('todo list test', () => {
   afterEach(cleanup);
   it('matches snapshot', () => {
@@ -34,5 +33,4 @@ describe('todo list test', () => {
     render(<TodoList todos={todos} />);
     todos.forEach((d) => expect(screen.getByText(d.name)).toBeInTheDocument());
   });
-
 });

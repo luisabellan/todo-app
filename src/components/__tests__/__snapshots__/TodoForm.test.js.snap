@@ -2,29 +2,33 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <form>
-    <input
-      data-testid="todo-input"
-      name="todoItem1"
-      placeholder="New Task"
-      type="text"
-      value=""
-    />
-    <button
-      class="add-to-do-btn"
-      data-testid="add-todo-button"
-    >
-      <span>
-        Add
-      </span>
-    </button>
-    <button
-      class="clear-btn"
-    >
-      <span>
-        Clean
-      </span>
-    </button>
-  </form>
+  <div
+    data-testid="form"
+  >
+    <form>
+      <input
+        data-testid="todo-input"
+        name="todoItem1"
+        placeholder="New Task"
+        type="text"
+        value=""
+      />
+      <button
+        class="add-to-do-btn"
+        data-testid="add-todo-button"
+      >
+        <span>
+          Add
+        </span>
+      </button>
+      <button
+        class="clear-btn"
+      >
+        <span>
+          Clean
+        </span>
+      </button>
+    </form>
+  </div>
 </DocumentFragment>
 `;

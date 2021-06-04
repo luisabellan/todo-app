@@ -3,6 +3,7 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import saveData from './utils'
 
 import './App.scss';
 
@@ -10,10 +11,6 @@ function App() {
   let todoItems = [];
 
   const [todos, setTodos] = useState(todoItems);
-
-  const saveData = (newTodos) => {
-    localStorage.setItem('todos', JSON.stringify(newTodos));
-  };
 
   useEffect(() => {
     if (localStorage.getItem('todos')) {
@@ -31,8 +28,11 @@ function App() {
       completed: false
     };
     let todoItems = [...todos, newItem];
-    setTodos(todoItems);
-    saveData(todoItems);
+    if (item.length > 0) {
+      setTodos(todoItems);
+      saveData(todoItems);
+
+    }
   };
 
   const toggleItem = (itemId) => {
@@ -73,7 +73,7 @@ function App() {
       </div>
       <Footer />
     </div>
-  );
+  )
 }
 
 export default App;
