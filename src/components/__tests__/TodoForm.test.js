@@ -30,10 +30,14 @@ it('renders TodoForm', async () => {
 });
 cleanup();
 
-it('handle changes of input text', (item = 'buy bread') => {
+it('handle changes of input text', () => {
+  let item = "";
   const { getByTestId } = render(<TodoForm />);
   const todoInputElement = getByTestId('todo-input');
   todoInputElement.value = item;
   fireEvent.change(todoInputElement);
   expect(todoInputElement.value).toBe(item);
+
+  userEvent.type(screen.getByTestId('todo-input'), 'read book')
+  expect(screen.getByTestId('todo-input')).toHaveValue('read book')
 });
