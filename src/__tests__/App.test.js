@@ -3,7 +3,10 @@ import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import TodoList from '../components/TodoList';
-import { saveData } from '../utils';
+import Todo from '../components/Todo';
+import Header from '../components/Header';
+import TodoForm from '../components/TodoForm';
+
 
 describe('App', () => {
   it('matches snapshot', () => {
@@ -11,7 +14,6 @@ describe('App', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  cleanup();
 
   it('renders:title, Text input field, Add button, Clean button and footer', () => {
     render(<App />);
@@ -30,46 +32,39 @@ describe('App', () => {
     expect(footerLink).toBeInTheDocument();
   });
 
-  /*   test('click on checkbox', () => {
-      render(
-        <div>
-          <label htmlFor="checkbox">Check</label>
-          <input id="checkbox" type="checkbox" />
-        </div>,
-      )
-  
-      userEvent.click(screen.getByText('Check'))
-      expect(screen.getByLabelText('Check')).toBeChecked()
-    });
-   */
 
-  /*    // Clear item
-    test('clear item', () => {
-      const onChange = jest.fn()
-      render(<input type="checkbox" onChange={onChange} />)
-      const checkbox = screen.getByRole('checkbox')
-      userEvent.dblClick(checkbox)
-      expect(onChange).toHaveBeenCalledTimes(2)
-      expect(checkbox).not.toBeChecked()
-    })  */
+
+
+
+
+  // Clear item
+  test('clear item', () => {
+    const onChange = jest.fn()
+    render(<App />)
+    const checkbox = screen.getByTestId('checkbox')
+    const cleanButton = screen.getByText('Clean')
+    userEvent.click(checkbox)
+    userEvent.click(cleanButton)
+    expect(checkbox).not.toBeChecked()
+  })
 
 
 
   //setTodos
 
-  /*  test('setTodos', () => {
-     let todos = [];
-     let Newtodos = [{ id: 1, name: 'buy bananas', completed: false }];
-     setTodos(JSON.parse(Newtodos));
-     let currentItems = localStorage.getItem('todos');
- 
-     let todoItems = [];
-     let Newtodos = [{ id: 2, name: "go running", completed: false },]
- 
-     expect(todos).toBe(JSON.parse(currentItems));
- 
-   }); */
-
+  /*   test('setTodos', () => {
+      render(<App />)
+      let todos = [];
+      let Newtodos = [{ id: 1, name: 'buy bananas', completed: false }];
+      setTodos(JSON.parse(Newtodos));
+      let currentItems = localStorage.getItem('todos');
+  
+      let todoItems = [];
+  
+      expect(todos).toBe(JSON.parse(currentItems));
+  
+    });
+   */
 
 
   // localStorage.setItem fun
@@ -83,6 +78,13 @@ describe('App', () => {
     let received = JSON.stringify([newItem]);
     expect(expected).toBe(received);
   });
+
+
+  const saveData = (newTodos) => {
+
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  }
+
 
 
 });

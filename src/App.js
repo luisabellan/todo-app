@@ -3,7 +3,6 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import saveData from './utils'
 
 import './App.scss';
 
@@ -18,6 +17,11 @@ function App() {
     }
   }, []);
 
+  // saves todo on local storage
+  const saveData = (newTodos) => {
+
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  }
   // Class methods to update state
   const addItem = (e, item) => {
     e.preventDefault();
@@ -34,6 +38,8 @@ function App() {
 
     }
   };
+
+
 
   const toggleItem = (itemId) => {
     // console.log(itemId);
@@ -59,8 +65,10 @@ function App() {
     saveData(todoItems);
   };
 
+
+
   return (
-    <div className="app-wrapper">
+    <div className="app-wrapper" data-testid="app">
       <Header className="header" />
       <div className="main">
         <TodoForm

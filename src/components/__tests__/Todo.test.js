@@ -19,9 +19,20 @@ describe('todo test', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should show name of todos', () => {
+  it('should show todos', () => {
     render(<Todo todo={todo} />);
 
-    expect(screen.getByText(todo.name)).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
   });
+
+  it('click checkbox', () => {
+    render(<Todo todo={todo} />);
+
+    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+    userEvent.click(screen.getByTestId('checkbox'));
+    expect(screen.getByTestId('checkbox')).toBeChecked();
+  });
+
 });

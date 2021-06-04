@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div>
-      <footer className="footer" data-testid="footer" >
+    <div data-testid="footer" >
+      <footer className="footer" >
         <span className="copyright">
           Made with 💓 and ☕ by{' '}
           <a href="https://luisabellan.com">Luis Abellan</a>

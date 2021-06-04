@@ -4,6 +4,7 @@ exports[`App matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="app-wrapper"
+    data-testid="app"
   >
     <div
       data-testid="header"
@@ -11,7 +12,6 @@ exports[`App matches snapshot 1`] = `
       <h2>
         Todo App
       </h2>
-      ;
     </div>
     <div
       class="main"
@@ -21,6 +21,7 @@ exports[`App matches snapshot 1`] = `
       >
         <form>
           <input
+            class="input"
             data-testid="todo-input"
             name="todoItem1"
             placeholder="New Task"
@@ -49,10 +50,11 @@ exports[`App matches snapshot 1`] = `
         data-testid="checkbox"
       />
     </div>
-    <div>
+    <div
+      data-testid="footer"
+    >
       <footer
         class="footer"
-        data-testid="footer"
       >
         <span
           class="copyright"
