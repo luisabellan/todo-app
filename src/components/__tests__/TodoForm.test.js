@@ -47,8 +47,8 @@ it('add todo', () => {
   };
 
   const { getByTestId } = render(<TodoForm />);
-  const input = getByTestId('todo-input');
-  input.value = item.todoItem1;
+  let input = getByTestId('todo-input');
+  input = item.todoItem1;
   userEvent.type(screen.getByTestId('todo-input'), 'read book')
   expect(screen.getByTestId('todo-input')).toHaveValue('read book')
 
