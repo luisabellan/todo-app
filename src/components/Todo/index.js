@@ -20,8 +20,7 @@ Todo.propTypes = {
 export default function Todo(props) {
 
   const handleClick = () => {
-    const { todo, toggleItem } = props;
-    toggleItem(todo.id);
+    props.toggleItem(props.todo.id);
   };
   return (
     <div className="checkbox" data-testid="todo">
