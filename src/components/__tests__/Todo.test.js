@@ -31,6 +31,8 @@ describe('todo test', () => {
 
     expect(screen.getByTestId('checkbox')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+    userEvent.click(screen.getByTestId('checkbox'));
+    expect(screen.getByTestId('checkbox')).toBeChecked()
   });
 
 });
