@@ -52,3 +52,35 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+## Scripts
+
+```
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "coverage": "npm run test -- --coverage --watchAll=false",
+    "test:integration": "cypress run",
+    "coverage:integration": "start-server-and-test 3000 test:integration",
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|scss|md)\"",
+    "cypress:open": "cypress open",
+    "cy:open": "cypress open",
+    "test2:jest": "jest __tests__",
+    "test2:cy": "cypress run",
+    "test2": "npm run test2:jest && npm run test:cy",
+    "pretest2": "rm -rf .nyc_output || true",
+    "posttest2": "npm run report:combined",
+    "mkdir:reports": "mkdir reports || true",
+    "precopy:reports": "npm run mkdir:reports",
+    "copy:reports": "cp cypress-coverage/coverage-final.json reports/from-cypress.json && cp jest-coverage/coverage-final.json reports/from-jest.json",
+    "precombine:reports": "npm run copy:reports && mkdir .nyc_output || true",
+    "combine:reports": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
+    "prereport:combined": "npm run combine:reports",
+    "report:combined": "npx nyc report --reporter lcov --reporter text --report-dir coverage"
+  },
+```

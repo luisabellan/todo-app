@@ -21,6 +21,7 @@ exports[`App matches snapshot 1`] = `
       >
         <form>
           <input
+            class="input"
             data-testid="todo-input"
             name="todoItem1"
             placeholder="New Task"

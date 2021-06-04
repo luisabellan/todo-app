@@ -3,7 +3,7 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="Cypress" />
 
-describe('My First Test', () => {
+describe('simple Test', () => {
   it('Does not do much!', () => {
     expect(true).to.equal(true)
   })
@@ -12,24 +12,35 @@ describe('My First Test', () => {
     cy.visit('http://localhost:3000')
     cy.get('input').type('get cookies')
     cy.get('.add-to-do-btn').click()
+    cy.get('.input').type('get milk')
+    cy.get('.add-to-do-btn').click()
     cy.get('.input').type('get eggs')
     cy.get('.add-to-do-btn').click()
-
-    /*   cy.get('input').type('get tomatoes')
-      cy.get('input').type('get parsley')
-      cy.get('input').type('get seeds')
-      cy.get('input').type('get cookies') */
-
-  })
-  it('adds todos', () => {
-
-    cy.get('.input').type('get cookies')
+    cy.get('.input').type('get bread')
     cy.get('.add-to-do-btn').click()
 
+
+
     /*   cy.get('input').type('get tomatoes')
       cy.get('input').type('get parsley')
       cy.get('input').type('get seeds')
       cy.get('input').type('get cookies') */
 
   })
+  it('deletes todos', () => {
+    // deletes todos
+    cy.get('[name="item get milk"]').check()
+    cy.get('[name="item get bread"]').check()
+    cy.get('.clear-btn').click()
+
+
+
+
+
+  })
+
+
+
+
+
 })
