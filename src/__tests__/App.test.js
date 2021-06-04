@@ -41,9 +41,10 @@ describe('App', () => {
   test('clear item', () => {
     const onChange = jest.fn()
     render(<App />)
-    const checkbox = screen.getByText('Clean')
-    userEvent.dblClick(checkbox)
-    expect(onChange).toHaveBeenCalledTimes(2)
+    const checkbox = screen.getByTestId('checkbox')
+    const cleanButton = screen.getByText('Clean')
+    userEvent.click(checkbox)
+    userEvent.click(cleanButton)
     expect(checkbox).not.toBeChecked()
   })
 
