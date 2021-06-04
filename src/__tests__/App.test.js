@@ -3,8 +3,8 @@ import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import TodoList from '../components/TodoList';
-import Todo from '../components/Todo';
-import Header from '../components/Header';
+import Todo from '../components/Todo/Todo';
+import Header from '../components/Header/Header';
 import TodoForm from '../components/TodoForm';
 
 

@@ -1,17 +1,7 @@
 import React from 'react';
-import Todo from '../Todo';
-import PropTypes, { bool, number, string } from 'prop-types';
+import Todo from '../Todo/Todo';
 
-TodoList.propTypes = {
-  todo: PropTypes.shape({
-    id: number,
-    name: string,
-    completed: bool
-  }),
-  todos: PropTypes.arrayOf(PropTypes.object),
-  toggleItem: PropTypes.func,
-  handleChanges: PropTypes.func
-};
+
 
 function TodoList(props) {
   return (

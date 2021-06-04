@@ -41,13 +41,23 @@ export default function TodoForm(props) {
           name="todoItem1"
           onChange={handleChanges}
         ></input>
+        <div id="buttons">
+          <div id="button-left">
+            <button className="add-to-do-btn" data-testid="add-todo-button">
+              <span>Add</span>
+            </button>
 
-        <button className="add-to-do-btn" data-testid="add-todo-button">
-          <span>Add</span>
-        </button>
-        <button className="clear-btn" onClick={props.clearCompleted}>
-          <span>Clean</span>
-        </button>
+          </div>
+          <div id="button-right">
+
+            <button className="clear-btn" onClick={props.clearCompleted}>
+              <span>Clean</span>
+            </button>
+
+          </div>
+
+
+        </div>
       </form>
     </div>
   );
