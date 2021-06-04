@@ -7,7 +7,6 @@ import Todo from '../components/Todo';
 import Header from '../components/Header';
 import TodoForm from '../components/TodoForm';
 
-import { saveData } from '../utils';
 
 describe('App', () => {
   it('matches snapshot', () => {
