@@ -1,6 +1,9 @@
-import { render } from 'react-dom';
+import React from 'react';
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
+import { render, screen, cleanup } from '@testing-library/react';
 import App from '../App';
-import saveData from '../utils'
+import { handleClick } from '../utils'
 
 // // saveData
 // test('saveData func', () => {
@@ -11,8 +14,13 @@ import saveData from '../utils'
 //   expect(currentItems.toString()).toBe(JSON.stringify(newTodos));
 // });
 
-test("1 + 1", () => {
-  expect(1 + 1).toBe(2);
-
-
-})
+// localStorage.setItem fun
+test('localStorage.setItem fun', () => {
+  let newItem = { id: 1, name: 'buy bananas', completed: false };
+  localStorage.setItem('todos', []);
+  let currentTodos = localStorage.getItem('todos')
+  localStorage.setItem('todos', JSON.stringify([newItem]));
+  let expected = localStorage.getItem('todos');
+  let received = JSON.stringify([newItem]);
+  expect(expected).toBe(received);
+});
