@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Todo.scss';
+import { handleClick } from '../../utils';
 
 Todo.propTypes = {
   todo: PropTypes.shape({
@@ -18,18 +19,15 @@ Todo.propTypes = {
 };
 
 export default function Todo(props) {
-  const handleClick = () => {
-    const { todo, toggleItem } = props;
-    return toggleItem(todo.id);
-  };
+
   return (
-    <div className="checkbox" data-testid="checkbox">
+    <div className="checkbox" data-testid="todo">
       <input
         type="checkbox"
-
+        data-testid="checkbox"
         name={`item ${props.todo.name}`}
         value={props.todo.name}
-        onClick={() => handleClick()}
+        onClick={() => handleClick(props)}
         onChange={props.handleChanges}
         defaultChecked={props.todo.completed}
       ></input>

@@ -4,9 +4,10 @@ exports[`todo test matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="checkbox"
-    data-testid="checkbox"
+    data-testid="todo"
   >
     <input
+      data-testid="checkbox"
       name="item buy bread"
       type="checkbox"
       value="buy bread"

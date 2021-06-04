@@ -2,8 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen, cleanup } from '@testing-library/react';
-import Todo from '../Todo';
-import App from '../../App';
+import Footer from '../Footer';
 
 const todo = {
   id: 1,
@@ -15,17 +14,13 @@ afterEach(cleanup);
 
 describe('todo test', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<Todo todo={todo} />);
+    const { asFragment } = render(<Footer />);
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should show todos', () => {
-    render(<Todo todo={todo} />);
+  it('should show footer', () => {
+    render(<Footer />);
 
-    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
-    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
-    expect(screen.getByText(todo.name)).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
-
-
 });

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todo test matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="footer"
+  >
+    <footer
+      class="footer"
+    >
+      <span
+        class="copyright"
+      >
+        Made with 💓 and ☕ by 
+        <a
+          href="https://luisabellan.com"
+        >
+          Luis Abellan
+        </a>
+      </span>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

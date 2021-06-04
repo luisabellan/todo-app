@@ -6,12 +6,13 @@ import {
   cleanup
   /* getRoles*/
 } from '@testing-library/react';
-
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
 import TodoForm from '../TodoForm';
 import Todo from '../Todo';
 import App from '../../App';
 
-cleanup();
+
 it('matches snapshot', () => {
   const { asFragment } = render(<TodoForm />);
   expect(asFragment()).toMatchSnapshot();

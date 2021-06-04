@@ -11,7 +11,6 @@ exports[`App matches snapshot 1`] = `
       <h2>
         Todo App
       </h2>
-      ;
     </div>
     <div
       class="main"
@@ -49,10 +48,11 @@ exports[`App matches snapshot 1`] = `
         data-testid="checkbox"
       />
     </div>
-    <div>
+    <div
+      data-testid="footer"
+    >
       <footer
         class="footer"
-        data-testid="footer"
       >
         <span
           class="copyright"
