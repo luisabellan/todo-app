@@ -113,5 +113,14 @@
   },
   "nyc": {
     "report-dir": "cypress-coverage"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!/node_modules/",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/reportWebVitals.js"
+    ]
   }
 }

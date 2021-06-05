@@ -6,7 +6,7 @@ import './Todo.scss';
 
 Todo.propTypes = {
   todo: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     name: PropTypes.string.isRequired,
     completed: PropTypes.bool,
   }),
@@ -18,7 +18,7 @@ Todo.propTypes = {
 export default function Todo(props) {
 
   const todoInitialState = {
-    id: Date.now(),
+    id: "",
     name: "",
     completed: false
   }

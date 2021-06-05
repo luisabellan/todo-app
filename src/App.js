@@ -33,7 +33,7 @@ function App() {
 
     const newItem = {
       name: item,
-      id: Date.now(),
+      id: "do item",
       completed: false
     };
     let todoItems = [...todos, newItem];

@@ -30,7 +30,10 @@ describe('todo test', () => {
 
     expect(screen.getByTestId('checkbox buy bread')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox buy bread')).not.toBeChecked();
+
     userEvent.click(screen.getByTestId('checkbox buy bread'));
+
     expect(screen.getByTestId('checkbox buy bread')).toBeChecked();
   });
 
