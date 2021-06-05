@@ -18,29 +18,31 @@ function App() {
     }
   }, []);
 
+
+
   // saves todo on local storage
   const saveData = (newTodos) => {
 
     localStorage.setItem('todos', JSON.stringify(newTodos));
   }
+
+
   // Class methods to update state
   const addItem = (e, item) => {
     e.preventDefault();
 
     const newItem = {
+      //todo item ${item.name}`,
+      id: Date.now().toString(),
       name: item,
-      id: Date.now(),
       completed: false
     };
     let todoItems = [...todos, newItem];
 
     /* 
-
-    /\S+/.test(item) 0 or more non-whitespace characters and no other characters
-      item will not be added 
-       
+      /\S+/.test(item) 
+      if 0 or more whitespace characters only item will not be added       
     */
-
 
     if (/\S+/.test(item)) {
       setTodos(todoItems);
@@ -74,6 +76,12 @@ function App() {
     setTodos(todoItems);
     saveData(todoItems);
   };
+  const clearAll = (e) => {
+    e.preventDefault();
+    let todoItems = []
+    setTodos(todoItems);
+    saveData(todoItems);
+  };
 
 
 
@@ -82,7 +90,7 @@ function App() {
       <GoogleFontLoader
         fonts={[
           {
-            font: 'Indie Flower',
+            font: 'Montserrat',
             weights: [800, '4000'],
           },
           {
@@ -98,9 +106,10 @@ function App() {
           className="todoform"
           addItem={addItem}
           clearCompleted={clearCompleted}
+          clearAll={clearAll}
         />
         {/* {console.log(todos)} */}
-        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
+        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" todos={todos} className="todolist" toggleItem={toggleItem} />
       </div >
       <Footer />
     </div >

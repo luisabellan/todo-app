@@ -21,12 +21,14 @@ it('matches snapshot', () => {
 it('renders TodoForm', async () => {
   render(<TodoForm />);
   const todoForm = await screen.findByPlaceholderText(/New task/i);
-  const addTodoButton = screen.getByText(/add/i);
-  const clearListButton = screen.getByText(/clean/i);
+  const addTodoButton = screen.getByText(/Add/);
+  const clearListButton = screen.getByText(/Delete/);
+  const cleanListButton = screen.getByText(/Clear/);
 
   expect(todoForm).toBeInTheDocument();
   expect(addTodoButton).toBeInTheDocument();
   expect(clearListButton).toBeInTheDocument();
+  expect(cleanListButton).toBeInTheDocument();
 });
 
 it('handle changes of input text', () => {
@@ -41,19 +43,4 @@ it('handle changes of input text', () => {
   expect(screen.getByTestId('todo-input')).toHaveValue('read book')
 });
 
-it('add todo', () => {
-  let item = {
-    todoItem1: ""
-  };
 
-  const { getByTestId } = render(<TodoForm />);
-  let input = getByTestId('todo-input');
-  input = item.todoItem1;
-  userEvent.type(screen.getByTestId('todo-input'), 'read book')
-  expect(screen.getByTestId('todo-input')).toHaveValue('read book')
-
-  userEvent.click(screen.getByText("Add"));
-  console.log(item.todoItem1)
-  expect(input.value).toBe(item.todoItem1.value);
-
-});

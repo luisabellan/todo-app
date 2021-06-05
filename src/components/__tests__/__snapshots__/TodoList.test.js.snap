@@ -4,14 +4,14 @@ exports[`todo list test matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="todolist-wrapper"
-    data-testid="checkbox"
+    data-testid="todos"
   >
     <div
       class="checkbox"
       data-testid="todo"
     >
       <input
-        data-testid="checkbox"
+        data-testid="checkbox buy bread"
         name="item buy bread"
         type="checkbox"
         value="buy bread"
@@ -27,7 +27,7 @@ exports[`todo list test matches snapshot 1`] = `
       data-testid="todo"
     >
       <input
-        data-testid="checkbox"
+        data-testid="checkbox buy milk"
         name="item buy milk"
         type="checkbox"
         value="buy milk"
@@ -43,7 +43,7 @@ exports[`todo list test matches snapshot 1`] = `
       data-testid="todo"
     >
       <input
-        data-testid="checkbox"
+        data-testid="checkbox write blog"
         name="item write blog"
         type="checkbox"
         value="write blog"
