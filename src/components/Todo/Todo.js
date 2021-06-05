@@ -1,6 +1,6 @@
 /* eslint-disable no-labels */
 /* eslint-disable no-unused-expressions */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Todo.scss';
 
@@ -16,15 +16,6 @@ Todo.propTypes = {
 };
 
 export default function Todo(props) {
-
-  const todoInitialState = {
-    id: "",
-    name: "",
-    completed: false
-  }
-
-  const [todo, setTodo] = useState(todoInitialState)
-
 
   return (
     <div className="checkbox" data-testid="todo">

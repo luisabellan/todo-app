@@ -53,7 +53,7 @@ export default function TodoForm(props) {
           <div id="button-right">
 
             <button className="clear-btn" onClick={props.clearCompleted}>
-              <span>Delete</span>
+              <span>Completed</span>
             </button>
 
 

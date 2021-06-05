@@ -32,8 +32,9 @@ function App() {
     e.preventDefault();
 
     const newItem = {
+      //todo item ${item.name}`,
+      id: Date.now(),
       name: item,
-      id: "do item",
       completed: false
     };
     let todoItems = [...todos, newItem];
