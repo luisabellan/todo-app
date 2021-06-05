@@ -33,7 +33,7 @@ function App() {
 
     const newItem = {
       //todo item ${item.name}`,
-      id: Date.now(),
+      id: Date.now().toString(),
       name: item,
       completed: false
     };
