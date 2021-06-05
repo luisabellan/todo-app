@@ -19,7 +19,8 @@ describe('App', () => {
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
     const addTodoButton = screen.getByText(/Add/);
-    const cleanTodoButton = screen.getByText(/Clean/);
+    const cleanTodoButton = screen.getByText(/Delete/);
+    const clearTodoButton = screen.getByText(/Clear/);
     const footer = screen.getByText(/Made with 💓 and ☕ by/);
     const footerLink = screen.getByText(/Luis Abellan/);
 
@@ -27,6 +28,7 @@ describe('App', () => {
     expect(placeholder).toBeInTheDocument();
     expect(addTodoButton).toBeInTheDocument();
     expect(cleanTodoButton).toBeInTheDocument();
+    expect(clearTodoButton).toBeInTheDocument();
     expect(footer).toBeInTheDocument();
     expect(footerLink).toBeInTheDocument();
   });
@@ -36,16 +38,16 @@ describe('App', () => {
 
 
 
-  // Clear item
-  test('clear item', () => {
-    //const onChange = jest.fn()
-    render(<App />)
-    const checkbox = screen.getByTestId('checkbox')
-    const cleanButton = screen.getByText('Clean')
-    userEvent.click(checkbox)
-    userEvent.click(cleanButton)
-    expect(checkbox).not.toBeChecked()
-  })
+  /*   // Clear item
+    test('clear item', () => {
+      //const onChange = jest.fn()
+      render(<App />)
+      const checkbox = screen.getByTestId(`checkbox ${ props.todo.name }`)
+      const cleanButton = screen.getByText('Delete')
+      userEvent.click(checkbox)
+     
+      expect(checkbox).toBeChecked()
+    }) */
 
 
 
@@ -98,17 +100,11 @@ describe('App', () => {
 
   it("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
     const toggleItem = jest.fn();
-    const todos = [
-      {
-        id: Date.now(),
-        name: 'buy bread',
-        completed: false
-      }
-    ]
+
     render(
       <App onClick={toggleItem}>
-        <TodoList todos={todos}>
-          <Todo todos={todos} onClick={toggleItem} />
+        <TodoList>
+          <Todo onClick={toggleItem} />
         </TodoList>
 
       </App>
@@ -135,9 +131,9 @@ describe('App', () => {
     };
 
     //wrapper.find("#para1").simulate("click");
-    fireEvent.click(screen.getAllByTestId("checkbox"))
+    userEvent.click(screen.getByTestId("checkbox buy bananas"))
     //expect(changeSize).toBeTruthy();
-    expect(todos.length).toBe(true)
+    expect(screen.getByText("buy bananas")).toBeInTheDocument()
   });
 
   /* 

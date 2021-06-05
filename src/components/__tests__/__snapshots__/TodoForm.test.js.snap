@@ -36,7 +36,14 @@ exports[`matches snapshot 1`] = `
             class="clear-btn"
           >
             <span>
-              Clean
+              Delete
+            </span>
+          </button>
+          <button
+            class="clear-btn"
+          >
+            <span>
+              Clear
             </span>
           </button>
         </div>

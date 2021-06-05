@@ -50,7 +50,14 @@ exports[`App matches snapshot 1`] = `
                 class="clear-btn"
               >
                 <span>
-                  Clean
+                  Delete
+                </span>
+              </button>
+              <button
+                class="clear-btn"
+              >
+                <span>
+                  Clear
                 </span>
               </button>
             </div>
@@ -59,7 +66,7 @@ exports[`App matches snapshot 1`] = `
       </div>
       <div
         class="todolist-wrapper"
-        data-testid="checkbox"
+        data-testid="todos"
       />
     </div>
     <div

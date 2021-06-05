@@ -75,6 +75,12 @@ function App() {
     setTodos(todoItems);
     saveData(todoItems);
   };
+  const clearAll = (e) => {
+    e.preventDefault();
+    let todoItems = []
+    setTodos(todoItems);
+    saveData(todoItems);
+  };
 
 
 
@@ -99,6 +105,7 @@ function App() {
           className="todoform"
           addItem={addItem}
           clearCompleted={clearCompleted}
+          clearAll={clearAll}
         />
         {/* {console.log(todos)} */}
         <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" todos={todos} className="todolist" toggleItem={toggleItem} />

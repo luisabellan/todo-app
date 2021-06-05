@@ -21,12 +21,14 @@ it('matches snapshot', () => {
 it('renders TodoForm', async () => {
   render(<TodoForm />);
   const todoForm = await screen.findByPlaceholderText(/New task/i);
-  const addTodoButton = screen.getByText(/add/i);
-  const clearListButton = screen.getByText(/clean/i);
+  const addTodoButton = screen.getByText(/Add/);
+  const clearListButton = screen.getByText(/Delete/);
+  const cleanListButton = screen.getByText(/Clear/);
 
   expect(todoForm).toBeInTheDocument();
   expect(addTodoButton).toBeInTheDocument();
   expect(clearListButton).toBeInTheDocument();
+  expect(cleanListButton).toBeInTheDocument();
 });
 
 it('handle changes of input text', () => {
