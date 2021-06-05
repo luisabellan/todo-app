@@ -35,8 +35,8 @@ function App() {
     let todoItems = [...todos, newItem];
 
     /* 
-        /\S+/.test(item) 
-        if 0 or more whitespace characters only item will not be added       
+      /\S+/.test(item) 
+      if 0 or more whitespace characters only item will not be added       
     */
 
     if (/\S+/.test(item)) {
