@@ -28,21 +28,33 @@ exports[`App matches snapshot 1`] = `
             type="text"
             value=""
           />
-          <button
-            class="add-to-do-btn"
-            data-testid="add-todo-button"
+          <div
+            id="buttons"
           >
-            <span>
-              Add
-            </span>
-          </button>
-          <button
-            class="clear-btn"
-          >
-            <span>
-              Clean
-            </span>
-          </button>
+            <div
+              id="button-left"
+            >
+              <button
+                class="add-to-do-btn"
+                data-testid="add-todo-button"
+              >
+                <span>
+                  Add
+                </span>
+              </button>
+            </div>
+            <div
+              id="button-right"
+            >
+              <button
+                class="clear-btn"
+              >
+                <span>
+                  Clean
+                </span>
+              </button>
+            </div>
+          </div>
         </form>
       </div>
       <div

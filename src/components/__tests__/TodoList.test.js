@@ -2,23 +2,22 @@ import React from 'react';
 import '@testing-library/jest-dom';
 
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import TodoList from '../TodoList';
-import App from '../../App';
+import TodoList from '../TodoList/TodoList';
 
 const todos = [
   {
+    id: "checkbox buy bread",
     name: 'buy bread',
-    id: 1,
     completed: false
   },
   {
+    id: "checkbox buy milk",
     name: 'buy milk',
-    id: 2,
     completed: false
   },
   {
+    id: "checkbox write blog",
     name: 'write blog',
-    id: 3,
     completed: false
   }
 ];

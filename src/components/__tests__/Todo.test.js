@@ -3,10 +3,9 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen, cleanup } from '@testing-library/react';
 import Todo from '../Todo/Todo';
-import App from '../../App';
 
 const todo = {
-  id: 1,
+  id: 'checkbox buy bread',
   name: 'buy bread',
   completed: false
 };
@@ -22,17 +21,19 @@ describe('todo test', () => {
   it('should show todos', () => {
     render(<Todo todo={todo} />);
 
-    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox buy bread')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
   });
 
   it('click checkbox', () => {
     render(<Todo todo={todo} />);
 
-    expect(screen.getByTestId('checkbox')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox buy bread')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
-    userEvent.click(screen.getByTestId('checkbox'));
-    expect(screen.getByTestId('checkbox')).toBeChecked();
+    userEvent.click(screen.getByTestId('checkbox buy bread'));
+    expect(screen.getByTestId('checkbox buy bread')).toBeChecked();
   });
+
+
 
 });

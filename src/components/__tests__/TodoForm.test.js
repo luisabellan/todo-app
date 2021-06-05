@@ -41,19 +41,4 @@ it('handle changes of input text', () => {
   expect(screen.getByTestId('todo-input')).toHaveValue('read book')
 });
 
-it('add todo', () => {
-  let item = {
-    todoItem1: ""
-  };
 
-  const { getByTestId } = render(<TodoForm />);
-  let input = getByTestId('todo-input');
-  input = item.todoItem1;
-  userEvent.type(screen.getByTestId('todo-input'), 'read book')
-  expect(screen.getByTestId('todo-input')).toHaveValue('read book')
-
-  userEvent.click(screen.getByText("Add"));
-  console.log(item.todoItem1)
-  expect(input.value).toBe(item.todoItem1.value);
-
-});

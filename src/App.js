@@ -18,11 +18,15 @@ function App() {
     }
   }, []);
 
+
+
   // saves todo on local storage
   const saveData = (newTodos) => {
 
     localStorage.setItem('todos', JSON.stringify(newTodos));
   }
+
+
   // Class methods to update state
   const addItem = (e, item) => {
     e.preventDefault();
@@ -79,7 +83,7 @@ function App() {
       <GoogleFontLoader
         fonts={[
           {
-            font: 'Indie Flower',
+            font: 'Montserrat',
             weights: [800, '4000'],
           },
           {
@@ -97,7 +101,7 @@ function App() {
           clearCompleted={clearCompleted}
         />
         {/* {console.log(todos)} */}
-        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" className="todolist" todos={todos} toggleItem={toggleItem} />
+        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" todos={todos} className="todolist" toggleItem={toggleItem} />
       </div >
       <Footer />
     </div >

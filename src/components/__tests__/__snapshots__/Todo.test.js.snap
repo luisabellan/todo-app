@@ -7,7 +7,7 @@ exports[`todo test matches snapshot 1`] = `
     data-testid="todo"
   >
     <input
-      data-testid="checkbox"
+      data-testid="checkbox buy bread"
       name="item buy bread"
       type="checkbox"
       value="buy bread"
