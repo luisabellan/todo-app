@@ -1,11 +1,14 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen, cleanup } from '@testing-library/react';
 import Todo from '../Todo/Todo';
 
+
 const todo = {
-  id: 'checkbox buy bread',
+  id: 'a',
   name: 'buy bread',
   completed: false
 };
@@ -18,23 +21,23 @@ describe('todo test', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should show todos', () => {
+  it('should show todo', () => {
     render(<Todo todo={todo} />);
 
-    expect(screen.getByTestId('checkbox buy bread')).toBeInTheDocument();
+    //expect(screen.getByTestId('a')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
   });
 
   it('click checkbox', () => {
     render(<Todo todo={todo} />);
 
-    expect(screen.getByTestId('checkbox buy bread')).toBeInTheDocument();
+    expect(screen.getByTestId('a')).toBeInTheDocument();
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
-    expect(screen.getByTestId('checkbox buy bread')).not.toBeChecked();
+    expect(screen.getByTestId('a')).not.toBeChecked();
 
-    userEvent.click(screen.getByTestId('checkbox buy bread'));
+    userEvent.click(screen.getByTestId('a'));
 
-    expect(screen.getByTestId('checkbox buy bread')).toBeChecked();
+    expect(screen.getByTestId('a')).toBeChecked();
   });
 
 
