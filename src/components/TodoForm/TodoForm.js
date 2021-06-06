@@ -44,7 +44,7 @@ export default function TodoForm(props) {
         <div id="buttons">
 
           <div id="button-left">
-            <button className="add-to-do-btn" data-testid="add-todo-button">
+            <button className="add-todo-btn" data-testid="add-todo-button">
               <span>Add</span>
             </button>
 
@@ -57,7 +57,7 @@ export default function TodoForm(props) {
             </button>
 
 
-            <button className="clear-btn" onClick={props.clearAll}>
+            <button className="del-btn" onClick={props.clearAll}>
               <span>Clear</span>
             </button>
           </div>

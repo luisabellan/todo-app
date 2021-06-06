@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { render, screen, mount, cleanup, fireEvent } from '@testing-library/react';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import TodoList from '../components/TodoList/TodoList';
@@ -19,7 +19,7 @@ describe('App', () => {
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
     const addTodoButton = screen.getByText(/Add/);
-    const cleanTodoButton = screen.getByText(/Delete/);
+    const cleanTodoButton = screen.getByText(/Completed/);
     const clearTodoButton = screen.getByText(/Clear/);
     const footer = screen.getByText(/Made with 💓 and ☕ by/);
     const footerLink = screen.getByText(/Luis Abellan/);

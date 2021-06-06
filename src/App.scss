@@ -181,7 +181,7 @@ body {
         #button-left {
           display: flex;
 
-          button.add-to-do-btn {
+          button.add-todo-btn {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -204,7 +204,8 @@ body {
           display: flex;
           flex-direction: row;
 
-          button.clear-btn {
+          button.clear-btn,
+          button.del-btn {
             display: flex;
             flex-direction: row;
             align-items: center;
