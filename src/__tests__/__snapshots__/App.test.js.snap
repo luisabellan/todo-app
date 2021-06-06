@@ -16,10 +16,10 @@ exports[`App matches snapshot 1`] = `
     <div
       class="main"
     >
-      <div
-        data-testid="form"
-      >
-        <form>
+      <div>
+        <form
+          data-testid="form"
+        >
           <input
             class="input"
             data-testid="todo-input"
@@ -54,7 +54,7 @@ exports[`App matches snapshot 1`] = `
                 </span>
               </button>
               <button
-                class="clear-btn"
+                class="del-btn"
               >
                 <span>
                   Clear

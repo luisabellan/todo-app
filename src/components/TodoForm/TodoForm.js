@@ -30,8 +30,8 @@ export default function TodoForm(props) {
   // console.log('rendering form', state.todoItem);
 
   return (
-    <div data-testid="form">
-      <form onSubmit={addTodo}>
+    <div>
+      <form onSubmit={addTodo} data-testid="form">
         <input
           type="text"
           className="input"
