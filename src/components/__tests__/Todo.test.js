@@ -43,50 +43,7 @@ describe('todo test', () => {
 
   });
 
-  // FIXME
-  it.skip('toggleItem()', (itemId) => {
-    let todos = [
-      {
-        id: "a",
-        note: "this is note a",
-        completed: true
-      },
-      {
-        id: "b",
-        note: "this is note b",
-        completed: true
-      },
-      {
-        id: "c",
-        note: "this is note c",
-        completed: false
-      }
-    ];
-
-    let myItem
-    todos.map(item => {
-      // console.log(item);
-      if (itemId === item.id) {
-        return {
-          ...item,
-          completed: !item.completed
-        };
-      }
-      myItem = item
-      return item;
-    })
-    let expected = {
-      id: "c",
-      note: "this is note c",
-      completed: false
-    }
-
-    myItem = JSON.stringify(myItem).replace(/\\"/g, '')
-    console.log(myItem)
-    //myItem = myItem.replace(/\\"/g)
-    expect(myItem).toBe(expected)
 
 
-  })
 
 })

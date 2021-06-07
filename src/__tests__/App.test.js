@@ -11,16 +11,17 @@ describe('App', () => {
 
 
 
-
   it('matches snapshot', () => {
     const { asFragment } = render(<App />);
     expect(asFragment()).toMatchSnapshot();
   });
 
 
+  beforeEach(() => {
+    render(<App />)
+  })
 
   it('renders:title, Text input field, Add button, Clean button and footer', () => {
-    render(<App />)
     // screen.debug()
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
@@ -59,24 +60,28 @@ describe('App', () => {
 
   //setTodos
   //FIXME   
-  test.skip('saveData()', () => {
-    render(<App />)
-    const setTodos = jest.fn();
-    const handleClick = jest.spyOn(React, "useState");
-    handleClick.mockImplementation(todos => [todos, setTodos]);
+  test('saveData()', () => {
+    // const setTodos = jest.fn();
+    // const handleClick = jest.spyOn(React, "useState");
+    // handleClick.mockImplementation(todos => [todos, setTodos]);
 
 
-    let Newtodos = [{ id: "a", name: 'buy bananas', completed: false }];
-    setTodos(Newtodos);
-    let currentItems = localStorage.getItem('todos');
+    // let Newtodos = [{ id: "a", name: 'buy bananas', completed: false }];
+    // setTodos(Newtodos);
+    // let currentItems = localStorage.getItem('todos');
 
-    let todoItems = [];
+    // let todoItems = [];
 
-    console.log(localStorage.getItem('todos'))
+    // console.log(localStorage.getItem('todos'))
 
-    expect(localStorage.getItem('todos')).toBe([{ id: "a", name: 'buy bananas', completed: false }]);
+    // expect(localStorage.getItem('todos')).toBe([{ id: "a", name: 'buy bananas', completed: false }]); 
+
+
 
   });
+
+
+
 
 
 

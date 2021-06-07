@@ -20,13 +20,13 @@ it('matches snapshot', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-let item = "";
+
+// WORKS
 let items = []
 let addItem = (item) => {
   items = [...items, item]
 
 }
-
 beforeEach(() => {
   // setup a DOM element as a render target
   render(<TodoForm addItem={addItem} />);
