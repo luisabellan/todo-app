@@ -80,7 +80,9 @@ describe('todo test', () => {
       completed: false
     }
 
-    myItem = JSON.stringify(myItem)
+    myItem = JSON.stringify(myItem).replace(/\\"/g, '')
+    console.log(myItem)
+    //myItem = myItem.replace(/\\"/g)
     expect(myItem).toBe(expected)
 
 
