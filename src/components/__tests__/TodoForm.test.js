@@ -13,20 +13,27 @@ import TodoForm from '../TodoForm/TodoForm';
 import Todo from '../Todo/Todo';
 import App from '../../App';
 
+
+// WORKS
 it('matches snapshot', () => {
   const { asFragment } = render(<TodoForm />);
   expect(asFragment()).toMatchSnapshot();
 });
 
 let item = "";
+let items = []
+let addItem = (item) => {
+  items = [...items, item]
+
+}
 
 beforeEach(() => {
   // setup a DOM element as a render target
-  render(<TodoForm />);
+  render(<TodoForm addItem={addItem} />);
 });
 
 
-
+// WORKS
 it('renders TodoForm', () => {
 
   const input = screen.getByPlaceholderText(/New task/i);
@@ -41,42 +48,45 @@ it('renders TodoForm', () => {
 });
 
 
-
-it(`- handle changes of input text
-    - submits todo items`, () => {
+// WORKS
+it('e.handleChanges() TodoForm.js line 16', () => {
 
   const input = screen.getByRole('textbox');
-  const form = screen.getByTestId('form');
-  input.value = item;
-  // listens for changes
-  fireEvent.change(input);
-  // checks item
-  expect(input.value).toBe(item);
+  //console.log(input)
 
+  // before changing text
+  expect(input.value).toBe('')
   // change text
   userEvent.type(input, 'read book')
-  // submit form
-  fireEvent.submit(form)
-  // check text
-  expect(input).toBeEmptyDOMElement()
+  // after changing text I ...
+  expect(input.value).toBe('read book')
+
+
 
 
 })
 
-it("should update state on submit", () => {
-  const form = screen.getByTestId('form');
-  const setState = jest.fn();
-  const handleClick = jest.spyOn(React, "useState");
-  handleClick.mockImplementation(state => [state, setState]);
+it('e.addTodo() TodoForm.js line 25', () => {
 
-  fireEvent.submit(form)
+  const input = screen.getByRole('textbox');
+  const addTodoButton = screen.getByText(/Add/);
+  // before changing text
+  expect(input.value).toBe('')
+  // change text
+  userEvent.type(input, 'read book')
+
+  fireEvent.click(addTodoButton) //maybe fireEvent.submit(form) ?
+  //expect(addTodoButton).toBeCalled()
 
 
-  setState({ todoItem1: '' });
-  let state = { todoItem1: '' }
-  //console.log(state)
-  expect(state).toBe({ todoItem1: '' })
-});
+
+
+
+
+
+})
+
+
 
 
 

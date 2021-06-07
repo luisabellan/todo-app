@@ -27,13 +27,13 @@ function App() {
 
 
   // Class methods to update state
-  const addItem = (e, item) => {
+  const addItem = (e, todo) => {
     e.preventDefault();
 
     const newItem = {
       //todo item ${item.name}`,
       id: Date.now().toString(),
-      name: item,
+      name: todo,
       completed: false
     };
     let todoItems = [...todos, newItem];
@@ -43,7 +43,7 @@ function App() {
       if 0 or more whitespace characters only item will not be added       
     */
 
-    if (/\S+/.test(item)) {
+    if (/\S+/.test(todo)) {
       setTodos(todoItems);
       saveData(todoItems);
 
@@ -52,20 +52,20 @@ function App() {
 
 
 
-  const toggleItem = (itemId) => {
+  const toggleItem = (todoId) => {
     // console.log(itemId);
 
     setTodos(
-      todos.map((item) => {
+      todos.map((todo) => {
         // console.log(item);
-        if (itemId === item.id) {
+        if (todoId === todo.id) {
           return {
-            ...item,
-            completed: !item.completed
+            ...todo,
+            completed: !todo.completed
           };
         }
 
-        return item;
+        return todo;
       })
     );
   };

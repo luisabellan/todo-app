@@ -43,7 +43,8 @@ describe('todo test', () => {
 
   });
 
-  it.only('toggleItem()', (itemId) => {
+  // FIXME
+  it.skip('toggleItem()', (itemId) => {
     let todos = [
       {
         id: "a",

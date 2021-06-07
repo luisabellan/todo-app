@@ -5,7 +5,7 @@ import { render, screen, cleanup } from '@testing-library/react';
 import Footer from '../Footer/Footer';
 
 const todo = {
-  id: 1,
+  id: "a",
   name: 'buy bread',
   completed: false
 };
@@ -18,7 +18,7 @@ describe('todo test', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should show footer', () => {
+  it('should show the footer', () => {
     render(<Footer />);
 
     expect(screen.getByTestId("footer")).toBeInTheDocument();

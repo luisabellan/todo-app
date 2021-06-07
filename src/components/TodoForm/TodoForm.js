@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 TodoForm.propTypes = {
   addItem: PropTypes.func,
-  clearCompleted: PropTypes.func
+  clearCompleted: PropTypes.func,
+  clearAll: PropTypes.func,
 };
 
 export default function TodoForm(props) {
