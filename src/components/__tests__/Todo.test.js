@@ -13,7 +13,10 @@ const todo = {
   completed: false
 };
 
-afterEach(cleanup);
+beforeEach(() => {
+  render(<Todo todo={todo} />);
+
+})
 
 describe('todo test', () => {
   it('matches snapshot', () => {
@@ -22,17 +25,17 @@ describe('todo test', () => {
   });
 
   it('should show todo', () => {
-    render(<Todo todo={todo} />);
 
-    //expect(screen.getByTestId('a')).toBeInTheDocument();
+    expect(screen.getByRole('checkbox')).toBeInTheDocument();
+    screen.debug()
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
   });
 
   it('click checkbox', () => {
-    render(<Todo todo={todo} />);
-
-    expect(screen.getByTestId('a')).toBeInTheDocument();
-    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+    let checkbox = screen.getByRole('checkbox')
+    let output = screen.getByTestId('todo-output')
+    expect(checkbox).toBeInTheDocument();
+    expect(output).toBeInTheDocument();
     expect(screen.getByTestId('a')).not.toBeChecked();
 
     userEvent.click(screen.getByTestId('a'));

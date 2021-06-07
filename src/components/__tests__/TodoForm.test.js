@@ -72,9 +72,10 @@ it("should update state on submit", () => {
   fireEvent.submit(form)
 
 
-  expect(setState).toEqual({
-    todoItem1: ''
-  });
+  setState({ todoItem1: '' });
+  let results = handleClick.mock.results
+  console.log(results)
+  //expect(results).toBe('')
 });
 
 
