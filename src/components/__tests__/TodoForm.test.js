@@ -73,9 +73,9 @@ it("should update state on submit", () => {
 
 
   setState({ todoItem1: '' });
-  let results = handleClick.mock.results
-  console.log(results)
-  //expect(results).toBe('')
+  let state = { todoItem1: '' }
+  //console.log(state)
+  expect(state).toBe({ todoItem1: '' })
 });
 
 

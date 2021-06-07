@@ -9,9 +9,9 @@ Todo.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     completed: PropTypes.bool,
+    toggleItem: PropTypes.func,
   }),
 
-  toggleItem: PropTypes.func,
   handleChanges: PropTypes.func
 };
 

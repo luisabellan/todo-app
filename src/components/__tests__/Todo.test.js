@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import Todo from '../Todo/Todo';
 
 
@@ -27,7 +27,6 @@ describe('todo test', () => {
   it('should show todo', () => {
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
-    screen.debug()
     expect(screen.getByTestId('todo-output')).toBeInTheDocument();
   });
 
@@ -35,14 +34,56 @@ describe('todo test', () => {
     let checkbox = screen.getByRole('checkbox')
     let output = screen.getByTestId('todo-output')
     expect(checkbox).toBeInTheDocument();
+    expect(checkbox).not.toBeChecked();
     expect(output).toBeInTheDocument();
-    expect(screen.getByTestId('a')).not.toBeChecked();
 
-    userEvent.click(screen.getByTestId('a'));
+    fireEvent.click(checkbox);
 
-    expect(screen.getByTestId('a')).toBeChecked();
+    expect(checkbox).toBeChecked();
+
   });
 
+  it.only('toggleItem()', (itemId) => {
+    let todos = [
+      {
+        id: "a",
+        note: "this is note a",
+        completed: true
+      },
+      {
+        id: "b",
+        note: "this is note b",
+        completed: true
+      },
+      {
+        id: "c",
+        note: "this is note c",
+        completed: false
+      }
+    ];
+
+    let myItem
+    todos.map(item => {
+      // console.log(item);
+      if (itemId === item.id) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      }
+      myItem = item
+      return item;
+    })
+    let expected = {
+      id: "c",
+      note: "this is note c",
+      completed: false
+    }
+
+    myItem = JSON.stringify(myItem)
+    expect(myItem).toBe(expected)
 
 
-});
+  })
+
+})
