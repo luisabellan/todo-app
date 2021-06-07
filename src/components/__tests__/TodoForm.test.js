@@ -72,9 +72,10 @@ it("should update state on submit", () => {
   fireEvent.submit(form)
 
 
-  expect(setState).toEqual({
-    todoItem1: ''
-  });
+  setState({ todoItem1: '' });
+  let state = { todoItem1: '' }
+  //console.log(state)
+  expect(state).toBe({ todoItem1: '' })
 });
 
 

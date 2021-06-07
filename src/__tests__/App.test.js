@@ -8,14 +8,19 @@ import Todo from '../components/Todo/Todo';
 
 
 describe('App', () => {
+
+
+
+
   it('matches snapshot', () => {
     const { asFragment } = render(<App />);
     expect(asFragment()).toMatchSnapshot();
   });
 
 
+
   it('renders:title, Text input field, Add button, Clean button and footer', () => {
-    render(<App />);
+    render(<App />)
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
     const addTodoButton = screen.getByText(/Add/);
@@ -53,25 +58,31 @@ describe('App', () => {
 
   //setTodos
 
-  /*   test('setTodos', () => {
-      render(<App />)
-      let todos = [];
-      let Newtodos = [{ id: 1, name: 'buy bananas', completed: false }];
-      setTodos(JSON.parse(Newtodos));
-      let currentItems = localStorage.getItem('todos');
-  
-      let todoItems = [];
-  
-      expect(todos).toBe(JSON.parse(currentItems));
-  
-    });
-   */
+  test('saveData()', () => {
+    render(<App />)
+    const setTodos = jest.fn();
+    const handleClick = jest.spyOn(React, "useState");
+    handleClick.mockImplementation(todos => [todos, setTodos]);
+
+
+    let Newtodos = [{ id: "sdfsdf", name: 'buy bananas', completed: false }];
+    setTodos(Newtodos);
+    let currentItems = localStorage.getItem('todos');
+
+    let todoItems = [];
+
+    console.log(localStorage.getItem('todos'))
+
+    expect(localStorage.getItem('todos')).toBe([{ id: "sdfsdf", name: 'buy bananas', completed: false }]);
+
+  });
+
 
 
   // localStorage.setItem fun
   test('localStorage.setItem fun', () => {
-    render(<App />)
-    let newItem = { id: 1, name: 'buy bananas', completed: false };
+
+    let newItem = { id: "a", name: 'buy bananas', completed: false };
     localStorage.setItem('todos', []);
     let currentTodos = localStorage.getItem('todos')
     localStorage.setItem('todos', JSON.stringify([newItem]));

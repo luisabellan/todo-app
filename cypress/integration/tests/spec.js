@@ -4,22 +4,21 @@
 /// <reference types="Cypress" />
 
 describe('simple Test', () => {
-  it('Does not do much!', () => {
-    expect(true).to.equal(true)
-  })
 
   it('adds todos', () => {
     cy.visit('http://localhost:3000')
+
     cy.get('input').type('get cookies')
     cy.get('.add-todo-btn').click()
+
     cy.get('.input').type('get milk')
     cy.get('.add-todo-btn').click()
+
     cy.get('.input').type('get eggs')
     cy.get('.add-todo-btn').click()
+
     cy.get('.input').type('get bread')
     cy.get('.add-todo-btn').click()
-
-
 
     cy.get('input').type('get tomatoes',)
     cy.get('.add-todo-btn').click()

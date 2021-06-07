@@ -3,7 +3,6 @@ import TodoList from './components/TodoList/TodoList';
 import TodoForm from './components/TodoForm/TodoForm';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import GoogleFontLoader from 'react-google-font-loader';
 
 import './App.scss';
 
@@ -87,19 +86,7 @@ function App() {
 
   return (
     <div className="app-wrapper" data-testid="app">
-      <GoogleFontLoader
-        fonts={[
-          {
-            font: 'Montserrat',
-            weights: [800, '4000'],
-          },
-          {
-            font: 'Indie Flower',
-            weights: [800, 900],
-          },
-        ]}
-        subsets={['cyrillic-ext', 'greek']}
-      />
+
       <Header className="header" />
       <div className="main">
         <TodoForm
