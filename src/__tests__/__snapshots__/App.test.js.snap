@@ -67,7 +67,40 @@ exports[`App matches snapshot 1`] = `
       <div
         class="todolist-wrapper"
         data-testid="todos"
-      />
+      >
+        <div
+          class="checkbox"
+          data-testid="todo"
+        >
+          <input
+            data-testid="checkbox buy bananas"
+            name="item buy bananas"
+            type="checkbox"
+            value="buy bananas"
+          />
+          <span
+            data-testid="todo-output"
+          >
+            buy bananas
+          </span>
+        </div>
+        <div
+          class="checkbox"
+          data-testid="todo"
+        >
+          <input
+            data-testid="checkbox buy strawberries"
+            name="item buy strawberries"
+            type="checkbox"
+            value="buy strawberries"
+          />
+          <span
+            data-testid="todo-output"
+          >
+            buy strawberries
+          </span>
+        </div>
+      </div>
     </div>
     <div
       data-testid="footer"

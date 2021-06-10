@@ -7,16 +7,14 @@ exports[`todo test matches snapshot 1`] = `
     data-testid="todo"
   >
     <input
-      data-testid="checkbox buy bread"
-      name="item buy bread"
+      data-testid="checkbox undefined"
+      name="item undefined"
       type="checkbox"
-      value="buy bread"
+      value=""
     />
     <span
       data-testid="todo-output"
-    >
-      buy bread
-    </span>
+    />
   </div>
 </DocumentFragment>
 `;
