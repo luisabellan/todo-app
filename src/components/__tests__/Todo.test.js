@@ -9,7 +9,7 @@ import Todo from '../Todo/Todo';
 
 const todo = {
   id: 'a',
-  name: 'buy bread',
+  note: 'buy bread',
   completed: false
 };
 
@@ -26,20 +26,24 @@ describe('todo test', () => {
 
   it('should show todo', () => {
 
-    expect(screen.getByRole('checkbox')).toBeInTheDocument();
-    expect(screen.getByTestId('todo-output')).toBeInTheDocument();
+    expect(screen.getByTestId(`checkbox ${todo.note}`)).toBeInTheDocument()
+    expect(screen.getByTestId('todo-output')).toBeInTheDocument()
   });
 
+  // TODO
   it('click checkbox', () => {
     let checkbox = screen.getByRole('checkbox')
     let output = screen.getByTestId('todo-output')
+
     expect(checkbox).toBeInTheDocument();
-    expect(checkbox).not.toBeChecked();
     expect(output).toBeInTheDocument();
 
+    expect(checkbox).not.toBeChecked();
+    expect(output).toBe("")
     fireEvent.click(checkbox);
-
     expect(checkbox).toBeChecked();
+    expect(output).toBe(todo.note)
+
 
   });
 

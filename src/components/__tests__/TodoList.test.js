@@ -7,17 +7,17 @@ import TodoList from '../TodoList/TodoList';
 const todos = [
   {
     id: "checkbox buy bread",
-    name: 'buy bread',
+    note: 'buy bread',
     completed: false
   },
   {
     id: "checkbox buy milk",
-    name: 'buy milk',
+    note: 'buy milk',
     completed: false
   },
   {
     id: "checkbox write blog",
-    name: 'write blog',
+    note: 'write blog',
     completed: false
   }
 ];
@@ -30,6 +30,6 @@ describe('todo list test', () => {
   });
   it('should show name of todos', () => {
     render(<TodoList todos={todos} />);
-    todos.forEach((d) => expect(screen.getByText(d.name)).toBeInTheDocument());
+    todos.forEach((d) => expect(screen.getByText(d.note)).toBeInTheDocument());
   });
 });

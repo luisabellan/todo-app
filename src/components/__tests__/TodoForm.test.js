@@ -76,7 +76,7 @@ it('e.addTodo() TodoForm.js line 25', () => {
   userEvent.type(input, 'read book')
 
   fireEvent.click(addTodoButton) //maybe fireEvent.submit(form) ?
-  //expect(addTodoButton).toBeCalled()
+  expect(addTodoButton).toBeCalled()
 
 
 

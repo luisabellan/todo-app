@@ -18,11 +18,17 @@ describe('App', () => {
 
 
   beforeEach(() => {
-    render(<App />)
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    localStorage.setItem('todos', JSON.stringify(todos));
+    render(
+      <App>
+        <TodoList todos={todos} />
+      </App>)
+
+
   })
 
   it('renders:title, Text input field, Add button, Clean button and footer', () => {
-    // screen.debug()
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
     const addTodoButton = screen.getByText(/Add/);
@@ -45,36 +51,46 @@ describe('App', () => {
 
 
 
-  /*   // Clear item
-    test('clear item', () => {
-      //const onChange = jest.fn()
-      render(<App />)
-      const checkbox = screen.getByTestId(`checkbox ${ props.todo.name }`)
-      const cleanButton = screen.getByText('Delete')
-      userEvent.click(checkbox)
-     
-      expect(checkbox).toBeChecked()
-    }) */
+  // Clear item
+  test('clear item', () => {
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    localStorage.setItem('todos', JSON.stringify(todos));
+    let checkbox = screen.getByTestId("checkbox buy bananas")
+    const cleanButton = screen.getByText('Completed')
+
+    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }])
+    userEvent.click(checkbox)
+    expect(checkbox).toBeChecked()
+
+    userEvent.click(cleanButton)
+    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([{ id: "b", note: 'buy strawberries', completed: false }])
+  })
 
 
 
-  //setTodos
-  //FIXME   
+  // works
   test('saveData()', () => {
-    // const setTodos = jest.fn();
-    // const handleClick = jest.spyOn(React, "useState");
-    // handleClick.mockImplementation(todos => [todos, setTodos]);
+
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    // does not work:
+    //jest.spyOn(localStorage, "setItem");
+    //localStorage.setItem = jest.fn();
+
+    // works:
+    // this works to --> window.localStorage.__proto__.setItem = jest.fn();
+    jest.spyOn(window.localStorage.__proto__, 'setItem');
+
+    localStorage.clear()
+    localStorage.setItem('todos', JSON.stringify(todos));
 
 
-    // let Newtodos = [{ id: "a", name: 'buy bananas', completed: false }];
-    // setTodos(Newtodos);
-    // let currentItems = localStorage.getItem('todos');
+    let currentItems = JSON.parse(localStorage.getItem('todos'));
+    console.log(currentItems)
 
-    // let todoItems = [];
 
-    // console.log(localStorage.getItem('todos'))
 
-    // expect(localStorage.getItem('todos')).toBe([{ id: "a", name: 'buy bananas', completed: false }]); 
+    expect(currentItems).toEqual(todos);
+    localStorage.clear()
 
 
 
@@ -85,72 +101,39 @@ describe('App', () => {
 
 
 
-  // localStorage.setItem fun
-  test('localStorage.setItem fun', () => {
-
-    let newItem = { id: "a", name: 'buy bananas', completed: false };
-    localStorage.setItem('todos', []);
-    let currentTodos = localStorage.getItem('todos')
-    localStorage.setItem('todos', JSON.stringify([newItem]));
-    let received = localStorage.getItem('todos')
-    let expected = JSON.stringify([newItem]);;
-    expect(expected).toBe(received);
-  });
-
-  /* it('add todo', () => {
-    let item = {
-      todoItem1: ""
-    };
-  
-    const { getByTestId } = render(<TodoForm />);
-    let input = getByTestId('todo-input');
-    input = item.todoItem1;
-    userEvent.type(screen.getByTestId('todo-input'), 'read book')
-    expect(screen.getByTestId('todo-input')).toHaveValue('read book')
-  
-    userEvent.click(screen.getByText("Add"));
-    //console.log(item.todoItem1)
-    expect(input.value).toBe(item.todoItem1.value);
-  
-  }); */
-
-
-  it("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
-    const toggleItem = jest.fn();
-
-    render(
-      <App onClick={toggleItem}>
-        <TodoList>
-          <Todo onClick={toggleItem} />
-        </TodoList>
-
-      </App>
-    )
-    const handleClick = jest.spyOn(React, "useState");
-    handleClick.mockImplementation = (todos, setTodos, todoId, toggleItem) => {
-
-      setTodos(
-        todos.map((todo) => {
-          // console.log(item);
-          if (todoId === todo.id) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            };
-          }
-
-          return todo;
-        })
-      );
+  /*   // localStorage.setItem fun
+    test('localStorage.setItem fun', () => {
+      localStorage.clear()
+      let newItem = { id: "a", name: 'buy bananas', completed: false };
+      localStorage.setItem('todos', []);
+      let currentTodos = localStorage.getItem('todos')
+      localStorage.setItem('todos', JSON.stringify([newItem]));
+      let received = localStorage.getItem('todos')
+      let expected = JSON.stringify([newItem]);;
+      expect(expected).toBe(received);
+    });
+   */
 
 
 
-    };
+  it.skip("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    let checkbox = screen.getByTestId("checkbox buy bananas")
+    let output = screen.getByTestId("todo-output")
 
-    //wrapper.find("#para1").simulate("click");
-    userEvent.click(screen.getByTestId("checkbox buy bananas"))
-    //expect(changeSize).toBeTruthy();
-    expect(screen.getByText("buy bananas")).toBeInTheDocument()
+
+
+    expect(checkbox).toBeInTheDocument()
+    userEvent.click(checkbox)
+    output = { note: 'buy strawberries' }
+
+
+
+
+
+    expect(todos).toBe(output)
+
+
   });
 
   /* 

@@ -30,13 +30,13 @@ function App() {
   const addItem = (e, todo) => {
     e.preventDefault();
 
-    const newItem = {
-      //todo item ${item.name}`,
-      id: Date.now().toString(),
-      name: todo,
+    const newTodoItem = {
+      //todo item ${item.note}`,
+      id: `todo ${todo.note}`,
+      note: todo,
       completed: false
     };
-    let todoItems = [...todos, newItem];
+    let todoItems = [...todos, newTodoItem];
 
     /* 
       /\S+/.test(item) 
