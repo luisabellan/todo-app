@@ -1,9 +1,9 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+//import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Todo from '../Todo/Todo';
 
 
@@ -30,6 +30,7 @@ describe('todo test', () => {
     expect(screen.getByTestId('todo-output')).toBeInTheDocument()
   });
 
+  // TODO
   it('click checkbox', () => {
     let checkbox = screen.getByRole('checkbox')
     let output = screen.getByTestId('todo-output')
@@ -38,8 +39,11 @@ describe('todo test', () => {
     expect(output).toBeInTheDocument();
 
     expect(checkbox).not.toBeChecked();
+    expect(output).toBe("")
     fireEvent.click(checkbox);
     expect(checkbox).toBeChecked();
+    expect(output).toBe(todo.note)
+
 
   });
 

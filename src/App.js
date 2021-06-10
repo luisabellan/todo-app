@@ -3,6 +3,8 @@ import TodoList from './components/TodoList/TodoList';
 import TodoForm from './components/TodoForm/TodoForm';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { v4 as uuidv4 } from 'uuid';
+
 
 import './App.scss';
 
@@ -30,13 +32,13 @@ function App() {
   const addItem = (e, todo) => {
     e.preventDefault();
 
-    const newItem = {
-      //todo item ${item.note}`,
-      id: Date.now().toString(),
+    const newTodoItem = {
+
+      id: uuidv4(),
       note: todo,
       completed: false
     };
-    let todoItems = [...todos, newItem];
+    let todoItems = [...todos, newTodoItem];
 
     /* 
       /\S+/.test(item) 

@@ -2,16 +2,14 @@ import React from 'react';
 import {
   render,
   screen,
-  fireEvent,
-  cleanup,
-  getByRole
-  /* getRoles*/
+  fireEvent
+
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import TodoForm from '../TodoForm/TodoForm';
-import Todo from '../Todo/Todo';
-import App from '../../App';
+/* import Todo from '../Todo/Todo';
+import App from '../../App'; */
 
 
 // WORKS
@@ -76,7 +74,7 @@ it('e.addTodo() TodoForm.js line 25', () => {
   userEvent.type(input, 'read book')
 
   fireEvent.click(addTodoButton) //maybe fireEvent.submit(form) ?
-  //expect(addTodoButton).toBeCalled()
+  expect(addTodoButton).toBeCalled()
 
 
 

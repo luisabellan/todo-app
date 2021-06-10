@@ -121,6 +121,7 @@ describe('App', () => {
     let checkbox = screen.getByTestId("checkbox buy bananas")
     let output = screen.getByTestId("todo-output")
 
+
     expect(checkbox).toBeInTheDocument()
     userEvent.click(checkbox)
     output = { note: 'buy strawberries' }

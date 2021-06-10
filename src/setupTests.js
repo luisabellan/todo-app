@@ -33,4 +33,16 @@ const localStorageMock = {
   setItem: jest.fn(),
   clear: jest.fn()
 };
+
 global.localStorage = localStorageMock;
+
+
+/* const toggleItem = jest.fn()
+global.toggleItem = toggleItem; */
+
+
+
+
+// Alternative to localStorageMock about is using this package: https://www.npmjs.com/package/jest-localstorage-mock
+
+

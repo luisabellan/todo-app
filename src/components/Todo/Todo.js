@@ -18,7 +18,8 @@ Todo.propTypes = {
 export default function Todo(props) {
 
   return (
-    <div className="checkbox" data-testid="todo" key="todo.id">
+
+    <div className="checkbox" data-testid="todo" >
       <input
         type="checkbox"
         data-testid={`checkbox ${props.todo.note}`}
