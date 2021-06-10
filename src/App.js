@@ -3,6 +3,8 @@ import TodoList from './components/TodoList/TodoList';
 import TodoForm from './components/TodoForm/TodoForm';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { v4 as uuidv4 } from 'uuid';
+
 
 import './App.scss';
 
@@ -32,7 +34,8 @@ function App() {
 
     const newTodoItem = {
       //todo item ${item.note}`,
-      id: `todo ${todo.note}`,
+      //id: `todo ${todo.note}`,
+      id: uuidv4(),
       note: todo,
       completed: false
     };

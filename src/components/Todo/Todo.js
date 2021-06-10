@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import './Todo.scss';
 
 Todo.propTypes = {
@@ -18,7 +19,7 @@ Todo.propTypes = {
 export default function Todo(props) {
 
   return (
-    <div className="checkbox" data-testid="todo" key="todo.id">
+    <div className="checkbox" data-testid="todo" >
       <input
         type="checkbox"
         data-testid={`checkbox ${props.todo.note}`}

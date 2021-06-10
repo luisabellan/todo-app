@@ -1,9 +1,9 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+//import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Todo from '../Todo/Todo';
 
 
