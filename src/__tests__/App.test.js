@@ -22,7 +22,9 @@ describe('App', () => {
     localStorage.setItem('todos', JSON.stringify(todos));
     render(
       <App>
-        <TodoList todos={todos} />
+        <TodoList todos={todos}>
+          <Todo />
+        </TodoList>
       </App>)
 
 
@@ -101,6 +103,7 @@ describe('App', () => {
     const noText = screen.queryByText(/buy coconuts/i)
     expect(noText).toBeNull()
 
+    // If I enter a alphanumeric text (/\S+/g)
     userEvent.type(textInput, "buy coconuts")
     expect(textInput).toHaveValue("buy coconuts")
     userEvent.click(addButton)
@@ -119,7 +122,31 @@ describe('App', () => {
     expect(JSON.parse(localStorage.getItem('todos'))[1].note).toBe('buy strawberries')
     expect(JSON.parse(localStorage.getItem('todos'))[2].note).toBe('buy coconuts')
 
+
+
+
+    // If I enter a non-alphanumeric text 
+    // userEvent.type(textInput, "")
+    userEvent.type(textInput, "  ")
+    expect(textInput).toHaveValue("  ")
+    userEvent.click(addButton)
+    expect(textInput).toHaveValue("")
+
+
+    // const text2 = screen.queryByText("")
+    // expect(text2).toBeInTheDocument()
+
+    expect(regex.test("")).toBeFalsy()
+
+    expect(JSON.parse(localStorage.getItem('todos'))[0].note).toBe('buy bananas')
+    expect(JSON.parse(localStorage.getItem('todos'))[1].note).toBe('buy strawberries')
+    expect(JSON.parse(localStorage.getItem('todos'))[1].note).not.toBe('  ')
+
+
+
   })
+
+
 
 
 
@@ -156,34 +183,9 @@ describe('App', () => {
 
 
 
-  /*   // localStorage.setItem fun
-    test('localStorage.setItem fun', () => {
-      localStorage.clear()
-      let newItem = { id: "a", name: 'buy bananas', completed: false };
-      localStorage.setItem('todos', []);
-      let currentTodos = localStorage.getItem('todos')
-      localStorage.setItem('todos', JSON.stringify([newItem]));
-      let received = localStorage.getItem('todos')
-      let expected = JSON.stringify([newItem]);;
-      expect(expected).toBe(received);
-    });
-   */
 
 
 
-  it("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
-    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
-    let checkbox = screen.getByTestId("checkbox buy bananas")
-    let output = screen.getByTestId("todo-output")
-
-    expect(checkbox).toBeInTheDocument()
-    userEvent.click(checkbox)
-    output = { note: 'buy strawberries' }
-
-    expect(todos).toBe(output)
-
-
-  });
 
   /* 
     Source: https://jestjs.io/docs/manual-mocks

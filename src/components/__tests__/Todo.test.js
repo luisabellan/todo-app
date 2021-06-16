@@ -30,22 +30,7 @@ describe('todo test', () => {
     expect(screen.getByTestId('todo-output')).toBeInTheDocument()
   });
 
-  // TODO
-  it('click checkbox', () => {
-    let checkbox = screen.getByRole('checkbox')
-    let output = screen.getByTestId('todo-output')
 
-    expect(checkbox).toBeInTheDocument();
-    expect(output).toBeInTheDocument();
-
-    expect(checkbox).not.toBeChecked();
-    expect(output).toBe("")
-    fireEvent.click(checkbox);
-    expect(checkbox).toBeChecked();
-    expect(output).toBe(todo.note)
-
-
-  });
 
 
 
