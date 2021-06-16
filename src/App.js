@@ -44,7 +44,6 @@ function App() {
     */
 
     if (/\S+/g.test(todo)) {
-      console.log('user entered alphanumeric characters');
 
       setTodos(todoItems);
       saveData(todoItems);
