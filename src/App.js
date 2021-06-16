@@ -33,7 +33,6 @@ function App() {
     e.preventDefault();
 
     const newTodoItem = {
-
       id: uuidv4(),
       note: todo,
       completed: false

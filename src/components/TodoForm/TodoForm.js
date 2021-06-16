@@ -33,7 +33,9 @@ export default function TodoForm(props) {
   return (
     <div>
       <form onSubmit={addTodo} data-testid="form">
+        <label htmlFor="text-input" aria-labelledby="text-input">New Task</label>
         <input
+          id="text-input"
           type="text"
           className="input"
           data-testid="todo-input"

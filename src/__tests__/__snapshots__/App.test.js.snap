@@ -20,9 +20,16 @@ exports[`App matches snapshot 1`] = `
         <form
           data-testid="form"
         >
+          <label
+            aria-labelledby="text-input"
+            for="text-input"
+          >
+            New Task
+          </label>
           <input
             class="input"
             data-testid="todo-input"
+            id="text-input"
             name="todoItem1"
             placeholder="New Task"
             type="text"

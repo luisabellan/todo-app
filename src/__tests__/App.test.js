@@ -52,7 +52,7 @@ describe('App', () => {
 
 
   // Clear item
-  test('clear item', () => {
+  test('clear completed', () => {
     let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
     localStorage.setItem('todos', JSON.stringify(todos));
     let checkbox = screen.getByTestId("checkbox buy bananas")
@@ -64,6 +64,61 @@ describe('App', () => {
 
     userEvent.click(cleanButton)
     expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([{ id: "b", note: 'buy strawberries', completed: false }])
+    localStorage.clear()
+  })
+
+  // Clear all
+  test('clear all', () => {
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    localStorage.setItem('todos', JSON.stringify(todos));
+    const clearButton = screen.getByText('Clear')
+    expect(clearButton).toBeInTheDocument()
+
+    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }])
+
+    userEvent.click(clearButton)
+    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([])
+    localStorage.clear()
+  })
+
+  // Add item
+  test('add item', () => {
+
+    let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+
+    //setItem('todos', JSON.stringify(todos));
+
+
+    const addButton = screen.getByText('Add')
+    expect(addButton).toBeInTheDocument()
+
+    const textInput = screen.getByRole('textbox')
+    expect(textInput).toBeInTheDocument()
+    expect(textInput).toHaveValue("")
+
+    const noText = screen.queryByText(/buy coconuts/i)
+    expect(noText).toBeNull()
+
+    userEvent.type(textInput, "buy coconuts")
+    expect(textInput).toHaveValue("buy coconuts")
+    userEvent.click(addButton)
+    expect(textInput).toHaveValue("")
+
+
+    // const todos = JSON.parse(localStorage.getItem('todos'))
+    //expect(noText).not.toBeInTheDocument()
+    const text = screen.queryByText(/buy coconuts/i)
+    expect(text).toBeInTheDocument()
+
+    const regex = /\S+/g;
+    expect(regex.test("buy coconuts")).toBeTruthy()
+
+    expect(JSON.parse(localStorage.getItem('todos'))[0].note).toBe('buy bananas')
+    expect(JSON.parse(localStorage.getItem('todos'))[1].note).toBe('buy strawberries')
+    expect(JSON.parse(localStorage.getItem('todos'))[2].note).toBe('buy coconuts')
+
   })
 
 
@@ -85,7 +140,7 @@ describe('App', () => {
 
 
     let currentItems = JSON.parse(localStorage.getItem('todos'));
-    console.log(currentItems)
+    //console.log(currentItems)
 
 
 
@@ -116,19 +171,14 @@ describe('App', () => {
 
 
 
-  it.skip("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
+  it("should toggle items by updating the todo item state (todo.completed = false --> true) when we click on checkbox", () => {
     let todos = [{ id: "a", note: 'buy bananas', completed: false }, { id: "b", note: 'buy strawberries', completed: false }]
     let checkbox = screen.getByTestId("checkbox buy bananas")
     let output = screen.getByTestId("todo-output")
 
-
     expect(checkbox).toBeInTheDocument()
     userEvent.click(checkbox)
     output = { note: 'buy strawberries' }
-
-
-
-
 
     expect(todos).toBe(output)
 
