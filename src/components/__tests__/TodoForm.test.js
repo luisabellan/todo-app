@@ -53,28 +53,35 @@ it('e.handleChanges() TodoForm.js line 16', () => {
   //console.log(input)
 
   // before changing text
-  expect(input.value).toBe('')
+  expect(input).toHaveValue('')
   // change text
   userEvent.type(input, 'read book')
   // after changing text I ...
-  expect(input.value).toBe('read book')
+  expect(input).toHaveValue('read book')
 
 
 
 
 })
 
-it('e.addTodo() TodoForm.js line 25', () => {
+// TODO Delete
+/* it('e.addTodo() TodoForm.js line 25', () => {
 
+  //localStorage.clear()
   const input = screen.getByRole('textbox');
-  const addTodoButton = screen.getByText(/Add/);
+  const output = screen.getByTestId('output')
+  const form = screen.getByTestId('form')
+  const addTodoButton = screen.getByText(/Add/i);
   // before changing text
   expect(input.value).toBe('')
   // change text
-  userEvent.type(input, 'read book')
+  const text = 'read book'
+  userEvent.type(input, text)
 
   fireEvent.click(addTodoButton) //maybe fireEvent.submit(form) ?
-  expect(addTodoButton).toBeCalled()
+  //fireEvent.submit(form)
+  const myText = screen.getByText(/read book/i)
+  expect(myText).toBeInTheDocument()
 
 
 
@@ -83,7 +90,7 @@ it('e.addTodo() TodoForm.js line 25', () => {
 
 
 })
-
+ */
 
 
 
