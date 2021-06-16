@@ -14,9 +14,8 @@ function App() {
   const [todos, setTodos] = useState(todoItems);
 
   useEffect(() => {
-    if (localStorage.getItem('todos')) {
-      setTodos(JSON.parse(localStorage.getItem('todos')));
-    }
+    setTodos(JSON.parse(localStorage.getItem('todos')));
+
   }, []);
 
 
@@ -44,7 +43,9 @@ function App() {
       if 0 or more whitespace characters only item will not be added       
     */
 
-    if (/\S+/.test(todo)) {
+    if (/\S+/g.test(todo)) {
+      console.log('user entered alphanumeric characters');
+
       setTodos(todoItems);
       saveData(todoItems);
 
@@ -96,7 +97,6 @@ function App() {
           clearCompleted={clearCompleted}
           clearAll={clearAll}
         />
-        {/* {console.log(todos)} */}
         <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" todos={todos} className="todolist" toggleItem={toggleItem} />
       </div >
       <Footer />
