@@ -9,17 +9,15 @@ Todo.propTypes = {
     id: PropTypes.string,
     note: PropTypes.string.isRequired,
     completed: PropTypes.bool,
-    toggleItem: PropTypes.func,
+    toggleItem: PropTypes.func
   }),
 
   handleChanges: PropTypes.func
 };
 
 export default function Todo(props) {
-
   return (
-
-    <div className="checkbox" data-testid="todo" >
+    <div className="checkbox" data-testid="todo">
       <input
         type="checkbox"
         data-testid={`checkbox ${props.todo.note}`}
@@ -30,6 +28,6 @@ export default function Todo(props) {
         defaultChecked={props.todo.completed}
       ></input>
       <span data-testid="todo-output">{props.todo.note}</span>
-    </div >
+    </div>
   );
 }

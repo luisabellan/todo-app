@@ -5,27 +5,22 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { v4 as uuidv4 } from 'uuid';
 
-
 import './App.scss';
 
 function App() {
   let todoItems = [];
+  localStorage.setItem('todos', JSON.stringify(todoItems));
 
   const [todos, setTodos] = useState(todoItems);
 
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem('todos')));
-
   }, []);
-
-
 
   // saves todo on local storage
   const saveData = (newTodos) => {
-
     localStorage.setItem('todos', JSON.stringify(newTodos));
-  }
-
+  };
 
   // Class methods to update state
   const addItem = (e, todo) => {
@@ -44,14 +39,10 @@ function App() {
     */
 
     if (/\S+/g.test(todo)) {
-
       setTodos(todoItems);
       saveData(todoItems);
-
     }
   };
-
-
 
   const toggleItem = (todoId) => {
     // console.log(itemId);
@@ -78,16 +69,13 @@ function App() {
   };
   const clearAll = (e) => {
     e.preventDefault();
-    let todoItems = []
+    let todoItems = [];
     setTodos(todoItems);
     saveData(todoItems);
   };
 
-
-
   return (
     <div className="app-wrapper" data-testid="app">
-
       <Header className="header" />
       <div className="main">
         <TodoForm
@@ -96,11 +84,17 @@ function App() {
           clearCompleted={clearCompleted}
           clearAll={clearAll}
         />
-        <TodoList style={{ fontFamily: 'Indie Flower, monospaced' }} data-testid="todolist" todos={todos} className="todolist" toggleItem={toggleItem} />
-      </div >
+        <TodoList
+          style={{ fontFamily: 'Indie Flower, monospaced' }}
+          data-testid="todolist"
+          todos={todos}
+          className="todolist"
+          toggleItem={toggleItem}
+        />
+      </div>
       <Footer />
-    </div >
-  )
+    </div>
+  );
 }
 
 export default App;

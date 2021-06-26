@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 TodoForm.propTypes = {
   addItem: PropTypes.func,
   clearCompleted: PropTypes.func,
-  clearAll: PropTypes.func,
+  clearAll: PropTypes.func
 };
 
 export default function TodoForm(props) {
@@ -33,7 +33,7 @@ export default function TodoForm(props) {
   return (
     <div>
       <form onSubmit={addTodo} data-testid="form">
-        <label htmlFor="text-input" aria-labelledby="text-input">New Task</label>
+        <label htmlFor="text-input" aria-labelledby="text-input"></label>
         <input
           id="text-input"
           type="text"
@@ -45,26 +45,21 @@ export default function TodoForm(props) {
           onChange={handleChanges}
         ></input>
         <div id="buttons">
-
           <div id="button-left">
             <button className="add-todo-btn" data-testid="add-todo-button">
               <span>Add</span>
             </button>
-
           </div>
 
           <div id="button-right">
-
             <button className="clear-btn" onClick={props.clearCompleted}>
               <span>Completed</span>
             </button>
-
 
             <button className="del-btn" onClick={props.clearAll}>
               <span>Clear</span>
             </button>
           </div>
-
         </div>
       </form>
     </div>
