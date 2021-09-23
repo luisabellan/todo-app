@@ -1,1 +1,7 @@
-/*eslint-disable*/module.exports={messages:{"Add":"Aggiungi","Clean":"Cancellare","New task":"Nuovo Compito","buy bread":"compra pane"}};
+/*eslint-disable*/ module.exports = {
+  messages: {
+    Add: 'Aggiungi',
+    Delete: 'Cancellare',
+    'New task': 'Nuovo Compito'
+  }
+};

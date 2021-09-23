@@ -1,1 +1,8 @@
-/*eslint-disable*/module.exports={messages:{"Add":"Agregar","Clean":"Limpiar","New task":"Nueva tarea","buy bread":"comprar pan"}};
+/*eslint-disable*/ module.exports = {
+  messages: {
+    Add: 'Agregar',
+    Delete: 'Borrar',
+    Done: 'Hecho',
+    'New task': 'Nueva tarea'
+  }
+};

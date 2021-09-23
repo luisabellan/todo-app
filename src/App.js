@@ -7,9 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './App.scss';
 
-// import { Trans } from '@lingui/macro';
 import { i18n } from '@lingui/core';
-// import { I18nProvider } from '@lingui/react'
 import { messages as es } from './locales/es/messages.js';
 import { messages as en } from './locales/en/messages.js';
 import { messages as fr } from './locales/fr/messages.js';
@@ -65,11 +63,8 @@ function App() {
   };
 
   const toggleItem = (todoId) => {
-    // console.log(itemId);
-
     setTodos(
       todos.map((todo) => {
-        // console.log(item);
         if (todoId === todo.id) {
           return {
             ...todo,
@@ -83,21 +78,27 @@ function App() {
   };
   const clearCompleted = (e) => {
     e.preventDefault();
-    let todoItems = todos.filter((item) => item.completed === false);
+    todoItems = todos.filter((item) => item.completed === false);
     setTodos(todoItems);
     saveData(todoItems);
   };
   const clearAll = (e) => {
     e.preventDefault();
-    let todoItems = [];
+    todoItems = [];
     setTodos(todoItems);
     saveData(todoItems);
+  };
+
+  const onChangeLanguage = (language) => {
+    i18n.activate(language);
   };
 
   return (
     <div className="app-wrapper" data-testid="app">
       <Header className="header" />
       <div className="main">
+        <LanguageSelector language={en} onChangeLanguage={onChangeLanguage} />
+
         <TodoForm
           className="todoform"
           addItem={addItem}
