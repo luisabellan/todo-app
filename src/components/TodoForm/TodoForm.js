@@ -28,8 +28,6 @@ export default function TodoForm(props) {
     setState({ todoItem1: '' });
   };
 
-  // console.log('rendering form', state.todoItem);
-
   return (
     <div>
       <form onSubmit={addTodo} data-testid="form">

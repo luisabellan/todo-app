@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:{"Add":"Ajouter","Clean":"Effacer","New task":"Nouvelle tâche","buy bread":"achète du pain"}};
