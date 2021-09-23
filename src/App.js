@@ -7,6 +7,24 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './App.scss';
 
+import { i18n } from '@lingui/core';
+import { messages as es } from './locales/es/messages.js';
+import { messages as en } from './locales/en/messages.js';
+import { messages as fr } from './locales/fr/messages.js';
+import { messages as de } from './locales/de/messages.js';
+import { messages as ar } from './locales/ar/messages.js';
+import { messages as it } from './locales/it/messages.js';
+import LanguageSelector from './components/LanguageSelector';
+import { t } from '@lingui/macro';
+
+i18n.load('es', es);
+i18n.load('de', de);
+i18n.load('fr', fr);
+i18n.load('it', it);
+i18n.load('ar', ar);
+i18n.load('en', en);
+i18n.activate('en');
+
 function App() {
   let todoItems = [];
   localStorage.setItem('todos', JSON.stringify(todoItems));
@@ -28,10 +46,10 @@ function App() {
 
     const newTodoItem = {
       id: uuidv4(),
-      note: todo,
+      note: t`${todo}`,
       completed: false
     };
-    let todoItems = [...todos, newTodoItem];
+    todoItems = [...todos, newTodoItem];
 
     /* 
       /\S+/.test(item) 
@@ -45,11 +63,8 @@ function App() {
   };
 
   const toggleItem = (todoId) => {
-    // console.log(itemId);
-
     setTodos(
       todos.map((todo) => {
-        // console.log(item);
         if (todoId === todo.id) {
           return {
             ...todo,
@@ -63,21 +78,27 @@ function App() {
   };
   const clearCompleted = (e) => {
     e.preventDefault();
-    let todoItems = todos.filter((item) => item.completed === false);
+    todoItems = todos.filter((item) => item.completed === false);
     setTodos(todoItems);
     saveData(todoItems);
   };
   const clearAll = (e) => {
     e.preventDefault();
-    let todoItems = [];
+    todoItems = [];
     setTodos(todoItems);
     saveData(todoItems);
+  };
+
+  const onChangeLanguage = (language) => {
+    i18n.activate(language);
   };
 
   return (
     <div className="app-wrapper" data-testid="app">
       <Header className="header" />
       <div className="main">
+        <LanguageSelector language={en} onChangeLanguage={onChangeLanguage} />
+
         <TodoForm
           className="todoform"
           addItem={addItem}
