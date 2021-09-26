@@ -11,7 +11,7 @@ TodoForm.propTypes = {
 
 export default function TodoForm(props) {
   const initialState = {
-    todoItem1: ''
+    todo: ''
   };
   const [state, setState] = useState(initialState);
 
@@ -19,11 +19,10 @@ export default function TodoForm(props) {
     setState({ [e.target.name]: e.target.value });
   };
 
-  // class property to submit form
   const addTodo = (e) => {
     e.preventDefault();
-    props.addItem(e, state.todoItem1);
-    setState({ todoItem1: '' });
+    props.addItem(e, state.todo);
+    setState({ todo: '' });
   };
 
   return (
@@ -38,9 +37,9 @@ export default function TodoForm(props) {
               type="text"
               className="input"
               data-testid="todo-input"
-              value={state.todoItem1}
+              value={state.todo}
               placeholder={translation}
-              name="todoItem1"
+              name="todo"
               onChange={handleChanges}
             ></input>
           )}

@@ -13,14 +13,15 @@ TodoList.propTypes = {
 };
 
 function TodoList(props) {
+  const { todos, onToggle } = props;
   return (
     <div className="todolist-wrapper" data-testid="todos">
-      {props.todos.map((todo) => (
+      {todos.map((todo) => (
         <Todo
           key={todo.id}
-          data-testid={`checkbox ${todo.note}`}
+          /* data-testid={`checkbox ${todo.note}`}*/
           todo={todo}
-          onToggle={props.onToggle}
+          onToggle={onToggle}
         />
       ))}
     </div>
