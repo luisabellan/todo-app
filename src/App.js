@@ -62,7 +62,7 @@ function App() {
     }
   };
 
-  const toggleItem = (todoId) => {
+  const onToggle = (todoId) => {
     setTodos(
       todos.map((todo) => {
         if (todoId === todo.id) {
@@ -110,7 +110,7 @@ function App() {
           data-testid="todolist"
           todos={todos}
           className="todolist"
-          toggleItem={toggleItem}
+          onToggle={onToggle}
         />
       </div>
       <Footer />

@@ -5,7 +5,6 @@
 import '@testing-library/jest-dom';
 // this used to work, not anymore due to changes in jsdom
 
-
 /* const localStorageMock = (function () {
   let store = {};
   return {
@@ -36,13 +35,7 @@ const localStorageMock = {
 
 global.localStorage = localStorageMock;
 
-
-/* const toggleItem = jest.fn()
-global.toggleItem = toggleItem; */
-
-
-
+/* const onToggle = jest.fn()
+global.onToggle = onToggle; */
 
 // Alternative to localStorageMock about is using this package: https://www.npmjs.com/package/jest-localstorage-mock
-
-

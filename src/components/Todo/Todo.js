@@ -6,11 +6,11 @@ import './Todo.scss';
 
 Todo.propTypes = {
   todo: PropTypes.shape({
-    id: PropTypes.string,
-    note: PropTypes.string.isRequired,
-    completed: PropTypes.bool,
-    toggleItem: PropTypes.func
-  })
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired,
+  onToggle: PropTypes.func.isRequired
 };
 
 export default function Todo(props) {
@@ -21,7 +21,7 @@ export default function Todo(props) {
         data-testid={`checkbox ${props.todo.note}`}
         name={`item ${props.todo.note}`}
         value={props.todo.note}
-        onClick={() => props.toggleItem(props.todo.id)}
+        onClick={() => props.onToggle(props.todo.id)}
         defaultChecked={props.todo.completed}
       ></input>
       <span data-testid="todo-output">{props.todo.note}</span>
