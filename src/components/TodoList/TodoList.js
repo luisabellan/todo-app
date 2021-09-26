@@ -8,7 +8,6 @@ function TodoList(props) {
         <Todo
           key={todo.id}
           data-testid={`checkbox ${todo.note}`}
-          handleChanges={props.handleChanges}
           todo={todo}
           toggleItem={props.toggleItem}
         />

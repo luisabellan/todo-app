@@ -10,9 +10,7 @@ Todo.propTypes = {
     note: PropTypes.string.isRequired,
     completed: PropTypes.bool,
     toggleItem: PropTypes.func
-  }),
-
-  handleChanges: PropTypes.func
+  })
 };
 
 export default function Todo(props) {
@@ -24,7 +22,6 @@ export default function Todo(props) {
         name={`item ${props.todo.note}`}
         value={props.todo.note}
         onClick={() => props.toggleItem(props.todo.id)}
-        onChange={props.handleChanges}
         defaultChecked={props.todo.completed}
       ></input>
       <span data-testid="todo-output">{props.todo.note}</span>
