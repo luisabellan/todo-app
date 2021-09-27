@@ -15,7 +15,7 @@ import { messages as de } from './locales/de/messages.js';
 import { messages as ar } from './locales/ar/messages.js';
 import { messages as it } from './locales/it/messages.js';
 import LanguageSelector from './components/LanguageSelector';
-import { t } from '@lingui/macro';
+/* import { t } from '@lingui/macro';*/
 
 i18n.load('es', es);
 i18n.load('de', de);
@@ -46,7 +46,7 @@ function App() {
 
     const newTodoItem = {
       id: uuidv4(),
-      note: t`${todo}`,
+      note: todo,
       completed: false
     };
     todoItems = [...todos, newTodoItem];
