@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       note: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
@@ -16,7 +16,7 @@ function TodoList(props) {
   const { todos, onToggle } = props;
   return (
     <div className="todolist-wrapper" data-testid="todos">
-      {todos.map((todo) => (
+      {todos.map((todo, idx) => (
         <Todo
           key={todo.id}
           /* data-testid={`checkbox ${todo.note}`}*/
