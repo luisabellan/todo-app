@@ -8,6 +8,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <I18nProvider i18n={i18n}> */}
     <I18nProvider i18n={i18n}>
       <App />
     </I18nProvider>

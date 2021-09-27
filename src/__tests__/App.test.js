@@ -5,6 +5,8 @@ import App from '../App';
 import TodoList from '../components/TodoList/TodoList';
 import Todo from '../components/Todo/Todo';
 import TodoForm from '../components/TodoForm/TodoForm';
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
 
 describe('App', () => {
   it('matches snapshot', () => {
@@ -27,7 +29,7 @@ describe('App', () => {
     );
   });
  */
-  it('renders:title, Text input field, Add button, Clean button and footer', () => {
+  it('renders:title, Text input field, Add button, Delete button and footer', () => {
     let todos = [
       { id: 'a', note: 'buy bananas', completed: false },
       { id: 'b', note: 'buy strawberries', completed: false }
@@ -41,8 +43,8 @@ describe('App', () => {
     const title = screen.getByText(/Todo App/);
     const placeholder = screen.getByPlaceholderText(/New Task/);
     const addTodoButton = screen.getByText(/Add/);
-    const cleanTodoButton = screen.getByText(/Completed/);
-    const clearTodoButton = screen.getByText(/Clear/);
+    const cleanTodoButton = screen.getByText(/Done/);
+    const clearTodoButton = screen.getByText(/Delete/);
     const footer = screen.getByText(/Made with 💓 and ☕ by/);
     const footerLink = screen.getByText(/Luis Abellan/);
 
@@ -57,24 +59,39 @@ describe('App', () => {
 
   // Clear item
   it('clear completed', () => {
-    let todos = [{ id: 'a', note: 'buy bananas', completed: false }];
-    let todo = { id: 'a', note: 'buy bananas', completed: false };
+    let todos = [
+      { id: 'a', note: 'buy bananas', completed: false },
+      { id: 'b', note: 'buy potatoes', completed: false }
+    ];
+    /* let todo = { id: 'a', note: 'buy bananas', completed: false }; */
 
-    localStorage.setItem('todos', JSON.stringify(todo));
-    render(<Todo todo={todo} />);
-    render(<TodoForm />);
-    //let checkbox = screen.getByTestId(`todolist`);
-    let checkbox = screen.getByTestId(`checkbox buy bananas`);
+    localStorage.setItem('todos', JSON.stringify(todos[0]));
+    render(
+      <I18nProvider i18n={i18n}>
+        <App>
+          <TodoForm />
+          <TodoList todos={todos}>
+            <Todo todo={todos[0]}></Todo>
+          </TodoList>
+        </App>
+      </I18nProvider>
+    );
+    /* render(<Todo todo={todos[0]} />);
+    render(<TodoForm />); */
+    let checkbox = screen.getByTestId(`checkbox ${todos[0].note}`);
 
-    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual({
-      id: 'a',
-      note: 'buy bananas',
-      completed: false
-    });
+    expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual(
+      {
+        id: 'a',
+        note: 'buy bananas',
+        completed: false
+      },
+      { id: 'b', note: 'buy potatoes', completed: false }
+    );
 
     userEvent.click(checkbox);
 
-    const cleanButton = screen.getByText('Completed');
+    const cleanButton = screen.getByText('Done');
     userEvent.click(cleanButton);
 
     expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual({});
@@ -92,20 +109,22 @@ describe('App', () => {
     ];
     localStorage.setItem('todos', JSON.stringify(todos));
     render(
-      <App>
-        <TodoList todos={todos} />
-      </App>
+      <I18nProvider i18n={i18n}>
+        <App>
+          <TodoList todos={todos} />
+        </App>
+      </I18nProvider>
     );
     localStorage.setItem('todos', JSON.stringify(todos));
-    const clearButton = screen.getByText('Clear');
-    expect(clearButton).toBeInTheDocument();
+    const deleteButton = screen.getByText('Delete');
+    expect(deleteButton).toBeInTheDocument();
 
     expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([
       { id: 'a', note: 'buy bananas', completed: false },
       { id: 'b', note: 'buy strawberries', completed: false }
     ]);
 
-    userEvent.click(clearButton);
+    userEvent.click(deleteButton);
     expect(JSON.parse(localStorage.getItem('todos'))).toStrictEqual([]);
     localStorage.clear();
   });
@@ -118,11 +137,13 @@ describe('App', () => {
     ];
     localStorage.setItem('todos', JSON.stringify(todos));
     render(
-      <App>
-        <TodoList todos={todos}>
-          <Todo />
-        </TodoList>
-      </App>
+      <I18nProvider i18n={i18n}>
+        <App>
+          <TodoList todos={todos}>
+            <Todo />
+          </TodoList>
+        </App>
+      </I18nProvider>
     );
 
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -182,11 +203,11 @@ describe('App', () => {
     ];
     localStorage.setItem('todos', JSON.stringify(todos));
     render(
-      <App>
-        <TodoList todos={todos}>
-          <Todo />
-        </TodoList>
-      </App>
+      <I18nProvider i18n={i18n}>
+        <App>
+          <TodoList todos={todos}>{/*<Todo todo={todo} />{  */}</TodoList>
+        </App>
+      </I18nProvider>
     );
     // does not work:
     //jest.spyOn(localStorage, "setItem");
